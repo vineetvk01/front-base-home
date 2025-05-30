@@ -2,10 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 
 export default function SEO({
-  description = 'Klubmeet helps you host your business online, by creating demos/courses and scheduling 1:1 meetings and much more',
-  author = 'KlubMeet Pvt Ltd',
+  description = 'Frontbase is a one-stop client portal solution to manage customers, automate workflows, and interact with clients seamlessly.',
+  author = 'Frontbase Pvt Ltd',
   meta,
-  title = 'KlubMeet Home',
+  title = 'Frontbase - Client Portal Solution',
 }) {
   const metaData = [
     {
@@ -53,5 +53,10 @@ export default function SEO({
 
 SEO.defaultProps = {
   lang: `en`,
-  meta: [],
+  meta: [
+    {
+      name: `viewport`,
+      content: `width=device-width, initial-scale=1`,
+    },
+  ],
 };
