@@ -40,11 +40,7 @@ export default function Footer() {
             </nav>
           </Box>
           <Text sx={styles.footer.copyright}>
-            {/* <b>Contact Us: Klubmeet Pvt Ltd, 8/2, Tower-C, Himalaya, Greater Noida, UP 201010</b> */}
-            <br />
-            {/* <b>Phone: +91-8076745462</b> */}
-            <br />
-            <b>Mail: <a href="mailto:vineetvk01@gmail.com">admin@frontbaseapp.com</a></b>
+            <b>Mail: <a href="mailto:frontbaseapp@gmail.com">admin@frontbaseapp.com</a></b>
           </Text>
           <br />
           <Text sx={styles.footer.copyright}>

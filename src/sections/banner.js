@@ -35,7 +35,7 @@ const styles = {
     position: 'relative',
     zIndex: 2,
     container: {
-      minHeight: '70vh',
+      minHeight: '50vh',
       padding: '100px 10px',
       display: 'flex',
       flexDirection: 'row',

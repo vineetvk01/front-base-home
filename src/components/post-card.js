@@ -1,14 +1,23 @@
 /** @jsx jsx */
 import { jsx, Image, Box, Heading, Text, Flex, Link } from 'theme-ui';
+import { MdContentCopy } from "react-icons/md";
 
 export default function PostCard({
   src,
   alt,
   postLink,
   title,
-  authorName,
-  date,
+  username,
+  password,
 }) {
+  
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      alert(`Copied to clipboard: ${text}`);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
   return (
     <Box sx={styles.card}>
       <Box sx={styles.thumbnail}>
@@ -17,14 +26,14 @@ export default function PostCard({
 
       <Flex sx={styles.postContent}>
         <Heading sx={styles.title}>
-          <Link href={postLink} variant="blog">
+          <Link href={postLink} variant="blog" target="_blank" rel="noopener noreferrer">
             {title}
           </Link>
         </Heading>
 
         <Flex sx={styles.postFooter}>
-          <Text sx={styles.postFooter.name}>{authorName}</Text>
-          <Text sx={styles.postFooter.date}>{date}</Text>
+          <Text sx={styles.postFooter.name}>{username}<MdContentCopy sx={styles.postFooter.copy} onClick={() => copyToClipboard(username)} /></Text>
+          <Text sx={styles.postFooter.date}>{password}<MdContentCopy sx={styles.postFooter.copy} onClick={() => copyToClipboard(password)} /></Text>
         </Flex>
       </Flex>
     </Box>
@@ -70,14 +79,23 @@ const styles = {
     alignItem: 'center',
     name: {
       fontSize: ['14px', null, 2],
-      fontWeight: 500,
+      fontWeight: 400,
       color: 'primary',
       lineHeight: 1.4,
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5px',
     },
     date: {
       fontSize: ['14px', null, 2],
       fontWeight: 400,
       lineHeight: 1.5,
+      display: 'flex',
+      alignItems: 'center',
+      gap: '5px',
+    },
+    copy: {
+      cursor: 'pointer',
     },
   },
 };

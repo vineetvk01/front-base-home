@@ -5,46 +5,43 @@ import SectionHeader from 'components/section-header';
 import PostCard from 'components/post-card.js';
 import ButtonGroup from 'components/button-group';
 import Carousel from 'react-multi-carousel';
-import PostThumb1 from 'assets/blog/1.jpg';
-import PostThumb2 from 'assets/blog/2.jpg';
-import PostThumb3 from 'assets/blog/3.jpg';
 
 const data = [
   {
     id: 1,
-    imgSrc: PostThumb1,
-    altText: 'Marketing',
-    postLink: '#',
-    title: 'Product Marketing: Monopoly Market',
-    authorName: 'Cali Cartel',
-    date: 'Oct 20, 2020',
+    imgSrc: "https://res.cloudinary.com/ditoriefv/image/upload/v1748708088/production/static-images/online-courses.png",
+    altText: 'Online Course',
+    postLink: 'https://portal.frontbaseapp.com/course/auth/login',
+    title: 'Online Course: Teach & Manage Your Students',
+    username: 'demo@frontbaseapp.com',
+    password: 'demo',
   },
   {
     id: 2,
-    imgSrc: PostThumb2,
-    altText: 'Creative',
-    postLink: '#',
-    title: 'Product Marketing: Creative Market',
-    authorName: 'James Carter',
-    date: 'Oct 20, 2020',
+    imgSrc: "https://res.cloudinary.com/ditoriefv/image/upload/v1748706477/production/static-images/agency-portal.png",
+    altText: 'Agency',
+    postLink: 'http://localhost:8005/agency/auth/login',
+    title: 'Product Agency: Manage Your Clients & Projects',
+    username: 'demo@frontbaseapp.com',
+    password: 'demo',
   },
   {
     id: 3,
-    imgSrc: PostThumb3,
-    altText: 'Startup',
-    postLink: '#',
-    title: 'Product Marketing: Startup Product Sales',
-    authorName: 'Aston Aagar',
-    date: 'Oct 20, 2020',
+    imgSrc: "https://res.cloudinary.com/ditoriefv/image/upload/v1748706800/production/static-images/school-portal.png",
+    altText: 'School',
+    postLink: 'https://portal.frontbaseapp.com/school/auth/login',
+    title: 'School Management: Parents & Students',
+    username: 'demo@frontbaseapp.com',
+    password: 'demo',
   },
   {
     id: 4,
-    imgSrc: PostThumb2,
-    altText: 'Creative',
-    postLink: '#',
-    title: 'Product Marketing: Creative Market',
-    authorName: 'James Carter',
-    date: 'Oct 20, 2020',
+    imgSrc: "https://res.cloudinary.com/ditoriefv/image/upload/v1748711252/production/static-images/paid-discovery.png",
+    altText: 'paid discovery',
+    postLink: 'https://portal.frontbaseapp.com/paid/auth/login',
+    title: 'Paid discovery: Get Paid for Your Expertise',
+    username: 'demo@frontbaseapp.com',
+    password: 'demo',
   },
 ];
 
@@ -76,8 +73,8 @@ export default function BlogSection() {
     <section sx={{ variant: 'section.news' }}>
       <Container>
         <SectionHeader
-          slogan="our blog"
-          title="Explore our products for your business solution"
+          slogan="Sample Portals"
+          title="Explore our sample portal similar to your business solution"
         />
 
         <Box sx={styles.carouselWrapper}>
@@ -110,8 +107,8 @@ export default function BlogSection() {
                 alt={item.altText}
                 postLink={item.postLink}
                 title={item.title}
-                authorName={item.authorName}
-                date={item.date}
+                username={item.username}
+                password={item.password}
               />
             ))}
           </Carousel>

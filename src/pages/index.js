@@ -5,6 +5,7 @@ import theme from 'theme';
 import SEO from 'components/seo';
 import Layout from 'components/layout';
 import Banner from '../sections/banner';
+import SamplePortals from '../sections/sample-portals';
 
 export default function IndexPage() {
   return (
@@ -13,6 +14,7 @@ export default function IndexPage() {
         <Layout>
           <SEO title="FrontBase Home" />
           <Banner />
+          <SamplePortals />
         </Layout>
       </StickyProvider>
     </ThemeProvider>
