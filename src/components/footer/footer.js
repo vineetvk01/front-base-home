@@ -122,7 +122,8 @@ const styles = {
       p: {
         fontSize: [1, '15px'],
         fontWeight: 400,
-        lineHeight: 2,
+        lineHeight: 1.5,
+        color: 'text_secondary',
       },
     },
   },

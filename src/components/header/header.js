@@ -33,12 +33,11 @@ export default function Header({ className }) {
           </Flex>
 
           <Button
-            className="donate__btn"
             variant="secondary"
             aria-label="Get Started"
             onClick={() =>  window.open('https://go.frontbaseapp.com/auth/login')}
           >
-            Log in
+            Sign in
           </Button>
 
           <MobileDrawer />
@@ -47,19 +46,6 @@ export default function Header({ className }) {
     </DrawerProvider>
   );
 }
-
-const positionAnim = keyframes`
-  from {
-    position: fixed;
-    opacity: 1;
-  }
-
-  to {
-    position: absolute;
-    opacity: 1;
-    transition: all 0.4s ease;
-  }
-`;
 
 const styles = {
   header: {
@@ -72,12 +58,6 @@ const styles = {
     left: 0,
     backgroundColor: 'transparent',
     transition: 'all 0.4s ease',
-    animation: `${positionAnim} 0.4s ease`,
-    '.donate__btn': {
-      flexShrink: 0,
-      mr: [15, 20, null, null, 0],
-      ml: ['auto', null, null, null, 0],
-    },
     '&.sticky': {
       position: 'fixed',
       backgroundColor: 'background',

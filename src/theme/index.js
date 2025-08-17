@@ -9,8 +9,8 @@ export default {
     background_secondary: '#F9FAFB', // Light gray background
     border_color: '#E5E7EB', // Subtle border color
     yellow: '#F59E0B', // Modern amber
-    primary: '#3B82F6', // Modern blue (replaces red)
-    secondary: '#6366F1', // Modern indigo
+    primary: '#111827', // Dark black for primary buttons
+    secondary: '#1F2937', // Darker gray for secondary buttons
     muted: '#F3F4F6', // Very light gray
     accent: '#8B5CF6', // Modern purple
     success: '#10B981', // Modern green
@@ -22,13 +22,13 @@ export default {
     modes: {
       dark: {
         text: '#F9FAFB',
-        background: '#111827',
-        primary: '#60A5FA',
-        secondary: '#818CF8',
-        muted: '#1F2937',
+        background: '#000000',
+        primary: '#1F2937',
+        secondary: '#374151',
+        muted: '#111827',
         heading: '#F9FAFB',
         heading_secondary: '#D1D5DB',
-        background_secondary: '#1F2937',
+        background_secondary: '#111827',
         border_color: '#374151',
       },
     },
@@ -262,7 +262,7 @@ export default {
     }, // default variant for MenuButton
     // you can reference other values defined in the theme
     defaultBtn: {
-      borderRadius: '45px',
+      borderRadius: '12px',
       fontSize: ['14px', null, null, 2],
       letterSpacings: '-0.15px',
       padding: ['12px 20px', null, '15px 30px'],
@@ -280,9 +280,9 @@ export default {
       color: 'white',
       bg: 'primary',
       '&:hover': {
-        boxShadow: 'rgba(59, 130, 246, 0.4) 0px 10px 25px -5px',
-        bg: '#2563EB',
-        transform: 'translateY(-2px)',
+        boxShadow: 'rgba(17, 24, 39, 0.6) 0px 5px 10px -5px',
+        bg: '#000000',
+        transform: 'translateY(-1px)',
       },
     },
     whiteButton: {
@@ -295,16 +295,12 @@ export default {
     },
     secondary: {
       variant: 'buttons.defaultBtn',
-      border: '2px solid',
-      borderColor: 'secondary',
       color: 'secondary',
       bg: 'transparent',
-      padding: ['10px 15px', null, '15px 30px'],
+      padding: ['10px 15px', null, '10px 40px'],
       '&:hover': {
-        color: 'white',
-        bg: 'secondary',
-        transform: 'translateY(-2px)',
-        boxShadow: 'rgba(99, 102, 241, 0.4) 0px 10px 25px -5px',
+        bg: 'muted',
+        transform: 'translateY(-1px)',
       },
     },
     textButton: {
