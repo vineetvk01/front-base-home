@@ -1,8 +1,29 @@
-const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
-
-const nextConfiguration = {
-  target: 'serverless', //will output independent pages that don't require a monolithic server. It's only compatible with next start or Serverless deployment platforms (like ZEIT Now) — you cannot use the custom server API.
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Configure image handling
+  images: {
+    unoptimized: true, // Disable image optimization for now to avoid loader issues
+    domains: [],
+  },
+  
+  // Webpack configuration to handle image files
+  webpack: (config, { isServer }) => {
+    // Add file loader for images
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif|svg)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            publicPath: '/_next',
+            name: 'static/media/[name].[hash].[ext]',
+          },
+        },
+      ],
+    });
+    
+    return config;
+  },
 };
 
-module.exports = withPlugins([optimizedImages], nextConfiguration);
+module.exports = nextConfig;
