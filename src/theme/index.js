@@ -1,27 +1,35 @@
 export default {
-  // example colors with dark mode
+  // Modern color scheme with no red tones
   colors: {
-    text: '#525252', // body color and primary color
-    text_secondary: '#333', // secondary body color
-    heading: '#000', // primary heading color
-    heading_secondary: '#525252', // heading color
-    background: '#fff', // body background color
-    background_secondary: '#111', // secondary background color
-    border_color: '#E5ECF4', // border color
-    yellow: '#FFA740', // border color
-    primary: '#ea3a60', // primary button and link color
-    secondary: '#fff', // secondary color - can be used for hover states
-    muted: '#E4E4E4', // muted color
-    accent: '#609', // a contrast color for emphasizing UI
+    text: '#374151', // Modern gray for body text
+    text_secondary: '#6B7280', // Lighter gray for secondary text
+    heading: '#111827', // Deep charcoal for headings
+    heading_secondary: '#4B5563', // Medium gray for secondary headings
+    background: '#FFFFFF', // Pure white background
+    background_secondary: '#F9FAFB', // Light gray background
+    border_color: '#E5E7EB', // Subtle border color
+    yellow: '#F59E0B', // Modern amber
+    primary: '#3B82F6', // Modern blue (replaces red)
+    secondary: '#6366F1', // Modern indigo
+    muted: '#F3F4F6', // Very light gray
+    accent: '#8B5CF6', // Modern purple
+    success: '#10B981', // Modern green
+    warning: '#F59E0B', // Modern amber
+    info: '#06B6D4', // Modern cyan
+    error: '#EF4444', // Modern red (only for errors)
 
     // highlight	a background color for highlighting text
     modes: {
       dark: {
-        text: '#fff',
-        background: '#000',
-        primary: '#0cf',
-        secondary: '#09c',
-        muted: '#111',
+        text: '#F9FAFB',
+        background: '#111827',
+        primary: '#60A5FA',
+        secondary: '#818CF8',
+        muted: '#1F2937',
+        heading: '#F9FAFB',
+        heading_secondary: '#D1D5DB',
+        background_secondary: '#1F2937',
+        border_color: '#374151',
       },
     },
   },
@@ -151,26 +159,35 @@ export default {
     heroPrimary: {
       color: 'heading',
       fontSize: [
+        '28px',
         '32px',
         '36px',
-        '42px',
         '40px',
-        '42px',
+        '44px',
+        '48px',
         '52px',
-        '58px',
-        '66px',
+        '56px',
       ],
-      lineHeight: [1.3, null, null, null, null, 1.2],
+      lineHeight: [1.2, null, null, null, null, 1.1],
       fontWeight: 700,
       mb: [4, null, null, null, null, 5],
+      letterSpacing: '-0.02em',
+      fontFamily: 'heading',
+      textRendering: 'optimizeLegibility',
+      WebkitFontSmoothing: 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
     },
     heroSecondary: {
-      fontSize: [2, null, '17px', null, null, '19px', 4],
-      lineHeight: [1.9, null, null, 2],
-      fontWeight: 'body',
+      fontSize: [1, null, '16px', null, null, '18px', 3],
+      lineHeight: [1.6, null, null, 1.7],
+      fontWeight: 400,
       mb: 5,
-      // px: [0, null, 5, 6, null, 8, 9],
-      color: 'heading',
+      color: 'text',
+      letterSpacing: '0.01em',
+      fontFamily: 'body',
+      textRendering: 'optimizeLegibility',
+      WebkitFontSmoothing: 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
     },
     title: {
       // extends the text.heading styles
@@ -260,11 +277,12 @@ export default {
     },
     primary: {
       variant: 'buttons.defaultBtn',
-      color: 'text_secondary',
+      color: 'white',
       bg: 'primary',
       '&:hover': {
-        boxShadow: 'rgba(233, 76, 84, 0.57) 0px 9px 20px -5px',
-        color: 'black',
+        boxShadow: 'rgba(59, 130, 246, 0.4) 0px 10px 25px -5px',
+        bg: '#2563EB',
+        transform: 'translateY(-2px)',
       },
     },
     whiteButton: {
@@ -278,13 +296,15 @@ export default {
     secondary: {
       variant: 'buttons.defaultBtn',
       border: '2px solid',
-      borderColor: 'primary',
-      color: 'primary',
+      borderColor: 'secondary',
+      color: 'secondary',
       bg: 'transparent',
       padding: ['10px 15px', null, '15px 30px'],
       '&:hover': {
         color: 'white',
-        bg: 'primary',
+        bg: 'secondary',
+        transform: 'translateY(-2px)',
+        boxShadow: 'rgba(99, 102, 241, 0.4) 0px 10px 25px -5px',
       },
     },
     textButton: {

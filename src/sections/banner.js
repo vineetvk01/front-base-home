@@ -8,20 +8,20 @@ export default function Banner() {
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox}>
-          <Heading as="h1" variant="heroPrimary">
-            Create client portal with No-Code
+          <Heading as="h3" variant="heroPrimary">
+            "Your users already know what to build next."
           </Heading>
           <Text as="p" variant="heroSecondary">
-            Build, visualize, automate workflows, and design a path to guide clients through your processes, step-by-step.
+          Bring their feedback out of the inbox and into one simple hub with FrontBase —where you capture, prioritize, and act on the right ideas.
           </Text>
-          <Button variant="primary" style={{marginTop: "40px"}} onClick={() => window.open('https://go.frontbaseapp.com')}>Start Trial</Button>
+          <Button variant="primary" style={{marginTop: "40px"}} onClick={() => window.open('https://go.frontbaseapp.com')}>Get Started Free</Button>
           <div style={{marginTop: "10px", color: "#000"}} >
-            <Text as="p"><Link href='https://go.frontbaseapp.com/auth/signup' target='_blank'>Sign up using email.</Link> No credit card required</Text>
+            <Text as="p">No credit card required. No setup needed.</Text>
             <Text as="p"><Link href='https://calendly.com/vineetsri/15min' target='_blank'>Connect with team.</Link> Schedule a call with us for demo</Text>
           </div>
         </Box>
         <Box sx={styles.banner.videoContainer}>
-          <img src={Post} alt='manage your customers' style={{ maxHeight: "100%", maxWidth: "100%" }}/>
+          <img src={Post} alt='manage your customers' style={{ maxHeight: "90%", maxWidth: "80%" }}/>
         </Box>
       </Container>
     </section>
@@ -53,6 +53,49 @@ const styles = {
       mx: 'left',
       textAlign: 'left',
       mb: ['40px', null, null, null, null, 7],
+    },
+    rocketAnimation: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      height: '100%',
+      minHeight: '300px',
+      position: 'relative',
+      '& svg': {
+        filter: 'drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1))',
+      },
+      '& .stars circle': {
+        filter: 'drop-shadow(0 2px 8px rgba(255, 255, 255, 0.3))',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          filter: 'drop-shadow(0 4px 12px rgba(255, 255, 255, 0.6))',
+          transform: 'scale(1.2)',
+        },
+      },
+      '& .rocket': {
+        filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2))',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          filter: 'drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3))',
+          transform: 'scale(1.05)',
+        },
+      },
+      '& .shooting-stars line': {
+        strokeDasharray: '0,100',
+        strokeLinecap: 'round',
+        filter: 'drop-shadow(0 2px 4px rgba(255, 255, 255, 0.4))',
+      },
+      '& .nebula ellipse': {
+        filter: 'drop-shadow(0 5px 15px rgba(147, 51, 234, 0.3))',
+        transition: 'all 0.5s ease',
+        '&:hover': {
+          filter: 'drop-shadow(0 8px 20px rgba(147, 51, 234, 0.5))',
+          transform: 'scale(1.1)',
+        },
+      },
     },
   },
 };
