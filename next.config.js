@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   // Configure image handling
   images: {
     unoptimized: true, // Disable image optimization for now to avoid loader issues

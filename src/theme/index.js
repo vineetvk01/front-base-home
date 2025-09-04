@@ -1,5 +1,9 @@
 export default {
   // Modern color scheme with no red tones
+  config: {
+    initialColorModeName: 'light',
+    useColorSchemeMediaQuery: false,
+  },
   colors: {
     text: '#374151', // Modern gray for body text
     text_secondary: '#6B7280', // Lighter gray for secondary text

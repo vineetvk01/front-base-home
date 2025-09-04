@@ -1,4 +1,4 @@
-/** @jsx jsx */
+ 
 import { jsx, Image, Box, Heading, Text, Flex, Link } from 'theme-ui';
 import { MdContentCopy } from "react-icons/md";
 

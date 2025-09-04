@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { ThemeProvider } from 'theme-ui';
+/** @jsxImportSource theme-ui */
+import { ThemeUIProvider } from 'theme-ui';
+import { ColorModeProvider } from '@theme-ui/color-modes'
 import { StickyProvider } from '../contexts/app/app.provider';
 import theme from 'theme';
 import SEO from 'components/seo';
@@ -8,27 +9,9 @@ import Banner from '../sections/banner';
 import SamplePortals from '../sections/sample-portals';
 
 export default function IndexPage() {
-
-  const [isDark, setIsDark] = useState(false);
-
-  // useEffect(() => {
-  //   // Check system preference
-  //   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  //   setIsDark(mediaQuery.matches);
-    
-  //   const handler = (e) => setIsDark(e.matches);
-  //   mediaQuery.addListener(handler);
-    
-  //   return () => mediaQuery.removeListener(handler);
-  // }, []);
-
-  const currentTheme = {
-    ...theme,
-    colors: isDark ? theme.colors.modes.dark : theme.colors
-  };
-
+ 
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeUIProvider theme={theme}>
       <StickyProvider>
         <Layout>
           <SEO title="FrontBase Home" />
@@ -36,6 +19,6 @@ export default function IndexPage() {
           {/* <SamplePortals /> */}
         </Layout>
       </StickyProvider>
-    </ThemeProvider>
+    </ThemeUIProvider>
   );
 }

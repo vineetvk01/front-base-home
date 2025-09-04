@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
+import { useState } from 'react';
 import {
   jsx,
   Container,

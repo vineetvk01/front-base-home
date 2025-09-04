@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+/** @jsxImportSource theme-ui */
 import React, { useState } from 'react';
 import Sticky from 'react-stickynode';
 import Header from './header/header';
@@ -15,7 +14,7 @@ export default function Layout({ children }) {
   };
   return (
     <React.Fragment>
-      <Sticky innerZ={1001} top={0} onStateChange={handleStateChange}>
+      <Sticky enabled={true} innerZ={1001} top={26} enableTransforms={false} onStateChange={handleStateChange}>
         <Header className={`${isSticky ? 'sticky' : 'unSticky'}`} />
       </Sticky>
       <main

@@ -1,4 +1,4 @@
-/** @jsx jsx */
+ /** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui';
 import { Container, Box, Heading, Text, Button, Link } from 'theme-ui';
 import { FaArrowCircleRight } from "react-icons/fa";

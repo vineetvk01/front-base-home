@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx, Image } from 'theme-ui';
+ /** @jsxImportSource theme-ui */
+import { Image } from 'theme-ui';
 import { Link } from 'components/link';
 
 export default function Logo({ src, ...rest }) {
