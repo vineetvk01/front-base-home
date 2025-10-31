@@ -1,31 +1,43 @@
  /** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui';
-import { Container, Box, Heading, Text, Button, Link } from 'theme-ui';
-import { FaArrowCircleRight } from "react-icons/fa";
-import Post from 'assets/post.svg';
+import { Container, Box, Heading, Text, Button } from 'theme-ui';
+import { BiSolidParty } from "react-icons/bi";
+import { CiCreditCardOff } from "react-icons/ci";
+import { FaArrowCircleRight, FaCogs, FaHeart, FaVoteYea } from "react-icons/fa";
+import { MdOutlineFeedback } from "react-icons/md";
 
 export default function Banner() {
   return (
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox}>
-          <Heading as="h3" variant="heroPrimary">
-            "Your users already know what to build next."
+          <Heading as="h4" variant="heroPrimary">
+            Build SaaS Products by <br />
+              <Box as={MdOutlineFeedback} sx={{ color: 'info', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Collect feedbacks from your customers, <br />
+              <Box as={FaVoteYea} sx={{ color: 'accent', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Prioritize with customer votes, <br />
+              <Box as={FaHeart} sx={{ color: 'error', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Shipping Updates that your Customers Love.
           </Heading>
           <Text as="p" variant="heroSecondary">
-          Bring their feedback out of the inbox and into one simple hub with FrontBase —where you capture, prioritize, and act on the right ideas.
+          Frontbase is the all-in-one feedback engine for SaaS teams — with clean idea boards, auto-syncing roadmaps, self-updating changelogs, and engagement loops that run on autopilot.
           </Text>
           <Button variant="primary" sx={styles.banner.startedFreeButton} onClick={() => window.open('https://go.frontbaseapp.com')}>
             Get Started Free 
             <FaArrowCircleRight sx={styles.banner.arrowIcon} />
           </Button>
           <Box sx={styles.banner.subTextContainer}>
-            <Text as="p">No credit card required. No setup needed.</Text>
+            <Text as="p">
+              <Box as={BiSolidParty} sx={{ color: 'info', fontSize: 3, display: 'inline-block', verticalAlign: 'middle', mr: 2 }} />
+              Free forever plan <br />
+              <Box as={CiCreditCardOff} sx={{ color: 'primary', fontSize: 3, display: 'inline-block', verticalAlign: 'middle', mr: 2 }} />
+              No credit card required.<br />
+              <Box as={FaCogs} sx={{ color: 'accent', fontSize: 3, display: 'inline-block', verticalAlign: 'middle', mr: 2 }} />
+              No setup needed.
+            </Text>
             {/* <Text as="p"><Link href='https://calendly.com/vineetsri/15min' target='_blank'>Connect with team.</Link> Schedule a call with us for demo</Text> */}
           </Box>
         </Box>
         <Box sx={styles.banner.videoContainer}>
-          <img src={Post} alt='manage your customers' />
+          <img src="https://res.cloudinary.com/ditoriefv/image/upload/v1761897650/production/static-images/portal-mockup-image_lipsy7.png" alt='manage your customers' />
         </Box>
       </Container>
     </section>
@@ -34,8 +46,7 @@ export default function Banner() {
 
 const styles = {
   banner: {
-    pt: ['140px', '145px', '155px', '170px', null, null, '180px', '215px'],
-    pb: [2, null, 0, null, 2, 0, null, 5],
+    pt: ['60px', null, null, null, null, null, null, null],
     position: 'relative',
     zIndex: 2,
     container: {
@@ -57,7 +68,7 @@ const styles = {
       justifyContent: 'center',
       '& img': {
         maxHeight: ['200px', '250px', '90%'],
-        maxWidth: ['80%', '85%', '80%'],
+        maxWidth: ['100%', '100%', '100%'],
         objectFit: 'contain',
       }
     },
@@ -67,14 +78,14 @@ const styles = {
       textAlign: ['center', 'center', 'left'],
       mb: ['40px', '40px', null, null, null, 7],
       px: ['20px', '20px', '0px'],
-          },
-      subTextContainer: {
-        marginTop: '10px',
-        color: 'text_secondary',
-        textAlign: ['center', 'center', 'left'],
-        px: ['20px', '20px', '0px'],
-      },
-      startedFreeButton: {
+    },
+    subTextContainer: {
+      marginTop: '10px',
+      color: 'text_secondary',
+      textAlign: ['center', 'center', 'left'],
+      px: ['20px', '20px', '0px'],
+    },
+    startedFreeButton: {
       borderRadius: '12px',
       marginTop: ['30px', '35px', '40px'],
       width: ['100%', '280px', '220px'],
