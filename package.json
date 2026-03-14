@@ -1,0 +1,38 @@
+{
+  "name": "@landing/005-next",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3010",
+    "build": "next build",
+    "serve": "next start",
+    "export": "next export",
+    "postbuild": "next-sitemap"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "framer-motion": "^11.0.17",
+    "globby": "^13.2.2",
+    "isomorphic-unfetch": "^4.0.2",
+    "next": "^14.2.4",
+    "prettier": "^3.6.2",
+    "rc-drawer": "^4.4.2",
+    "react": "^18.2.0",
+    "react-custom-scrollbars-2": "^4.5.0",
+    "react-dom": "^18.2.0",
+    "react-ga": "^3.3.1",
+    "react-icons": "^5.2.1",
+    "react-multi-carousel": "^2.8.6",
+    "react-scroll": "^1.8.9",
+    "react-stickynode": "^4.0.1",
+    "theme-ui": "^0.17.2",
+    "typeface-dm-sans": "^1.1.13"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "next-sitemap": "^4.2.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://home.frontbaseapp.com
+
+# Sitemaps
+Sitemap: https://home.frontbaseapp.com/sitemap.xml
