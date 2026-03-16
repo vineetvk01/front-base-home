@@ -1,26 +1,27 @@
- /** @jsxImportSource theme-ui */
-import { jsx, Container, Box, Flex } from 'theme-ui';
-import { keyframes } from '@emotion/core';
-import React, { useState } from 'react';
-import Carousel from 'react-multi-carousel';
-import PriceCard from 'components/price-card';
-import ButtonGroup from 'components/button-group';
-import SectionHeader from 'components/section-header';
-import { IoIosCheckmarkCircle, IoIosCloseCircle } from 'react-icons/io';
+/** @jsxImportSource theme-ui */
+import { jsx, Container, Box, Flex } from "theme-ui";
+import { keyframes } from "@emotion/react";
+import React from "react";
+//import React, { useState } from "react";
+//import Carousel from "react-multi-carousel";
+//import ButtonGroup from "components/button-group";
+import PriceCard from "components/price-card";
+import SectionHeader from "components/section-header";
+import { IoIosCheckmarkCircle, IoIosCloseCircle } from "react-icons/io";
 
 const packages = {
   monthly: [
     {
       id: 1,
-      name: 'Free Plan',
-      description: 'For Small teams or Individuals',
-      buttonText: 'Start My Page',
-      priceWithUnit: '₹0',
+      name: "Free",
+      description: "For Small teams or Individuals",
+      buttonText: "Get Free",
+      priceWithUnit: "$0",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Create your unique link',
+          text: "Create your unique link",
           isAvailable: true,
         },
         {
@@ -32,30 +33,30 @@ const packages = {
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Sync your Calendar to avoid conflicts',
+          text: "Sync your Calendar to avoid conflicts",
           isAvailable: true,
         },
         {
           id: 4,
           icon: <IoIosCloseCircle />,
-          text: 'White Label your landing page',
+          text: "White Label your landing page",
           isAvailable: true,
         },
       ],
     },
     {
       id: 2,
-      header: 'Suggested',
-      name: 'Business king',
-      description: 'For Instructors and Consultants',
-      priceWithUnit: '₹699',
-      buttonText: 'Create account',
-      anotherOption: 'Request feature for your use-case',
+      header: "Suggested",
+      name: "Starter",
+      description: "For Instructors and Consultants",
+      priceWithUnit: "$29",
+      buttonText: "Get Starter",
+      anotherOption: "Request feature for your use-case",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Everything from Free Plan',
+          text: "Everything from Free Plan",
           isAvailable: true,
         },
         {
@@ -67,13 +68,13 @@ const packages = {
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Earn by uploading your Courses',
+          text: "Earn by uploading your Courses",
           isAvailable: true,
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
-          text: 'eCommerce Store ',
+          text: "eCommerce Store ",
           isAvailable: true,
         },
       ],
@@ -81,16 +82,16 @@ const packages = {
     {
       id: 3,
       headerIcon: <IoIosCheckmarkCircle />,
-      name: 'Pro Master',
-      description: 'For pro content creators',
-      priceWithUnit: '₹999',
-      buttonText: 'Coming Soon',
-      anotherOption: '',
+      name: "Professional",
+      description: "For pro content creators",
+      priceWithUnit: "$59",
+      buttonText: "Get Pro",
+      anotherOption: "",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Drag & Drop Builder',
+          text: "Drag & Drop Builder",
           isAvailable: true,
         },
         {
@@ -102,13 +103,13 @@ const packages = {
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Blog Support Tools',
+          text: "Blog Support Tools",
           isAvailable: true,
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
-          text: 'eCommerce Store ',
+          text: "eCommerce Store ",
           isAvailable: true,
         },
       ],
@@ -117,15 +118,15 @@ const packages = {
   annual: [
     {
       id: 1,
-      name: 'Free Plan',
-      description: 'For Small teams or office',
-      buttonText: 'Start My Page',
-      priceWithUnit: '₹0',
+      name: "Free Plan",
+      description: "For Small teams or office",
+      buttonText: "Start My Page",
+      priceWithUnit: "₹0",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Create your unique link',
+          text: "Create your unique link",
           isAvailable: true,
         },
         {
@@ -137,30 +138,30 @@ const packages = {
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Sync your Calendar to avoid conflicts',
+          text: "Sync your Calendar to avoid conflicts",
           isAvailable: true,
         },
         {
           id: 4,
           icon: <IoIosCloseCircle />,
-          text: 'White Label your landing page',
+          text: "White Label your landing page",
           isAvailable: true,
         },
       ],
     },
     {
       id: 2,
-      header: 'Suggested',
-      name: 'Business king',
-      description: 'For Enterprise business',
-      priceWithUnit: '₹599',
-      buttonText: 'Create account',
-      anotherOption: 'Request feature for your use-case',
+      header: "Suggested",
+      name: "Business king",
+      description: "For Enterprise business",
+      priceWithUnit: "₹599",
+      buttonText: "Create account",
+      anotherOption: "Request feature for your use-case",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Everything from Free Plan',
+          text: "Everything from Free Plan",
           isAvailable: true,
         },
         {
@@ -172,13 +173,13 @@ const packages = {
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Earn by uploading your Courses',
+          text: "Earn by uploading your Courses",
           isAvailable: true,
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
-          text: 'eCommerce Store ',
+          text: "eCommerce Store ",
           isAvailable: true,
         },
       ],
@@ -186,16 +187,16 @@ const packages = {
     {
       id: 3,
       headerIcon: <IoIosCheckmarkCircle />,
-      name: 'Pro Master',
-      description: 'For pro content creators',
-      priceWithUnit: '₹899',
-      buttonText: 'Coming Soon',
-      anotherOption: '',
+      name: "Pro Master",
+      description: "For pro content creators",
+      priceWithUnit: "₹899",
+      buttonText: "Coming Soon",
+      anotherOption: "",
       points: [
         {
           id: 1,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Drag & Drop Builder',
+          text: "Drag & Drop Builder",
           isAvailable: true,
         },
         {
@@ -207,13 +208,13 @@ const packages = {
         {
           id: 3,
           icon: <IoIosCheckmarkCircle />,
-          text: 'Blog Support Tools',
+          text: "Blog Support Tools",
           isAvailable: true,
         },
         {
           id: 4,
           icon: <IoIosCheckmarkCircle />,
-          text: 'eCommerce Store ',
+          text: "eCommerce Store ",
           isAvailable: true,
         },
       ],
@@ -240,89 +241,91 @@ const responsive = {
 };
 
 export default function Package() {
-  const { monthly, annual } = packages;
-  const [state, setState] = useState({
-    active: 'monthly',
-    pricingPlan: monthly,
-  });
+  const { monthly } = packages;
+  //const { monthly, annual } = packages;
+  // const [state, setState] = useState({
+  //   active: "monthly",
+  //   pricingPlan: monthly,
+  // });
 
-  const handlePricingPlan = (plan) => {
-    if (plan === 'annual') {
-      setState({
-        ...state,
-        active: 'annual',
-        pricingPlan: annual,
-      });
-    } else {
-      setState({
-        ...state,
-        active: 'monthly',
-        pricingPlan: monthly,
-      });
-    }
-  };
+  // const handlePricingPlan = (plan) => {
+  //   if (plan === "annual") {
+  //     setState({
+  //       ...state,
+  //       active: "annual",
+  //       pricingPlan: annual,
+  //     });
+  //   } else {
+  //     setState({
+  //       ...state,
+  //       active: "monthly",
+  //       pricingPlan: monthly,
+  //     });
+  //   }
+  // };
 
-  const sliderParams = {
-    additionalTransfrom: 0,
-    arrows: false,
-    autoPlaySpeed: 3000,
-    centerMode: false,
-    className: '',
-    slidesToSlide: 1,
-    items: 3,
-    containerClass: 'carousel-container',
-    customButtonGroup: <ButtonGroup />,
-    dotListClass: '',
-    focusOnSelect: false,
-    infinite: false,
-    keyBoardControl: false,
-    itemClass: '',
-    minimumTouchDrag: 80,
-    renderButtonGroupOutside: true,
-    renderDotsOutside: false,
-    responsive: responsive,
-    showDots: false,
-    sliderClass: '',
-  };
+  // const sliderParams = {
+  //   additionalTransfrom: 0,
+  //   arrows: false,
+  //   autoPlaySpeed: 3000,
+  //   centerMode: false,
+  //   className: "",
+  //   slidesToSlide: 1,
+  //   items: 3,
+  //   containerClass: "carousel-container",
+  //   // customButtonGroup: <ButtonGroup />,
+  //   dotListClass: "",
+  //   focusOnSelect: false,
+  //   infinite: false,
+  //   keyBoardControl: false,
+  //   itemClass: "",
+  //   minimumTouchDrag: 80,
+  //   renderButtonGroupOutside: true,
+  //   renderDotsOutside: false,
+  //   responsive: responsive,
+  //   showDots: false,
+  //   sliderClass: "",
+  // };
 
   return (
-    <section id="pricing" sx={{ variant: 'section.pricing' }}>
+    <section id="pricing" sx={{ variant: "section.pricing" }}>
       <Container>
         <SectionHeader
-          slogan="Pricing Plan"
-          title="Choose your pricing policy"
+          // slogan="Pricing"
+          title="Pricing that doesn't punish growth"
         />
-        <Flex sx={styles.buttonGroup}>
+        {/* <Flex sx={styles.buttonGroup}>
           <Box sx={styles.buttonGroupInner}>
             <button
-              className={state.active === 'monthly' ? 'active' : ''}
+              className={state.active === "monthly" ? "active" : ""}
               type="button"
               aria-label="Monthly"
-              onClick={() => handlePricingPlan('monthly')}
+              onClick={() => handlePricingPlan("monthly")}
             >
               Monthly Plan
             </button>
             <button
-              className={state.active === 'annual' ? 'active' : ''}
+              className={state.active === "annual" ? "active" : ""}
               type="button"
               aria-label="Annual"
-              onClick={() => handlePricingPlan('annual')}
+              onClick={() => handlePricingPlan("annual")}
             >
               Annual Plan
             </button>
           </Box>
-        </Flex>
+        </Flex> */}
         <Box sx={styles.pricingWrapper} className="pricing__wrapper">
-          <Carousel {...sliderParams}>
-            {state.pricingPlan.map((packageData) => (
-              <Box
-                sx={styles.pricingItem}
-                key={`${state.active}-card--key${packageData.id}`}
-              >
-                <PriceCard data={packageData} />
-              </Box>
-            ))}
-          </Carousel>
+          {/* <Carousel {...sliderParams}> */}
+          {packages.monthly.map((packageData) => (
+            <Box sx={styles.pricingItem} key={packageData.id}>
+              <PriceCard data={packageData} />
+            </Box>
+          ))}
+          {/* {packages.monthly.map((packageData) => (
+            <Box sx={styles.pricingItem} key={packageData.id}>
+              <PriceCard data={packageData} />
+            </Box>
+          ))} */}
         </Box>
       </Container>
     </section>
@@ -349,75 +352,75 @@ const fadeIn2 = keyframes`
 `;
 const styles = {
   pricingWrapper: {
-    mb: '-40px',
-    mt: '-40px',
+    mb: "-40px",
+    mt: "-40px",
     mx: -3,
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    '&.pricing__wrapper .package__card': {
-      '.package__header': {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    "&.pricing__wrapper .package__card": {
+      ".package__header": {
         animation: `${fadeIn} 0.8s ease-in`,
       },
-      'ul > li': {
+      "ul > li": {
         animation: `${fadeIn2} 0.7s ease-in`,
       },
-      '.package__price': {
+      ".package__price": {
         animation: `${fadeIn2} 0.9s ease-in`,
       },
       button: {
         animation: `${fadeIn2} 1s ease-in`,
       },
     },
-    '.carousel-container': {
-      width: '100%',
-      '> ul > li ': {
-        display: 'flex',
+    ".carousel-container": {
+      width: "100%",
+      "> ul > li ": {
+        display: "flex",
       },
     },
-    '.button__group': {
-      display: ['flex', null, null, null, 'none'],
+    ".button__group": {
+      display: ["flex", null, null, null, "none"],
       mb: [4, null, null, null, 0],
     },
   },
   pricingItem: {
     mx: 3,
-    display: 'flex',
+    display: "flex",
     flexShrink: 0,
-    flex: '1 1 auto',
+    flex: "1 1 33%",
   },
   buttonGroup: {
-    justifyContent: 'center',
-    mb: '7',
-    mt: ['-15px', '-35px'],
-    position: 'relative',
+    justifyContent: "center",
+    mb: "7",
+    mt: ["-15px", "-35px"],
+    position: "relative",
     zIndex: 2,
   },
   buttonGroupInner: {
-    display: 'flex',
-    padding: '7px',
-    margin: '0 auto',
-    borderRadius: '5px',
-    backgroundColor: '#F7F8FB',
+    display: "flex",
+    padding: "7px",
+    margin: "0 auto",
+    borderRadius: "5px",
+    backgroundColor: "#F7F8FB",
     button: {
       border: 0,
-      padding: ['15px 20px', '15px 27px'],
-      borderRadius: '5px',
-      color: 'text',
+      padding: ["15px 20px", "15px 27px"],
+      borderRadius: "5px",
+      color: "text",
       fontSize: [1, 2],
       lineHeight: 1.2,
       fontWeight: 500,
-      backgroundColor: 'transparent',
-      cursor: 'pointer',
-      fontFamily: 'body',
-      letterSpacing: '-0.24px',
-      transition: 'all 0.3s',
-      '&.active': {
-        color: '#0f2137',
-        backgroundColor: '#ffffff',
-        boxShadow: '0 3px 4px rgba(38, 78, 118, 0.1)',
+      backgroundColor: "transparent",
+      cursor: "pointer",
+      fontFamily: "body",
+      letterSpacing: "-0.24px",
+      transition: "all 0.3s",
+      "&.active": {
+        color: "#0f2137",
+        backgroundColor: "#ffffff",
+        boxShadow: "0 3px 4px rgba(38, 78, 118, 0.1)",
       },
-      '&:focus': {
+      "&:focus": {
         outline: 0,
       },
     },
