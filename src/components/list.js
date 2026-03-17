@@ -1,12 +1,12 @@
-import React from 'react';
-import { Flex, Box, IconButton } from 'theme-ui';
-
+import React from "react";
+import { Flex, Box, IconButton } from "theme-ui";
+import { IoIosCheckmarkCircle, IoIosCloseCircle } from "react-icons/io";
 export default function List({ items = [], parentStyle, childStyle }) {
   return (
     <Box
       as="ul"
       sx={{
-        listStyleType: 'none',
+        listStyleType: "none",
         margin: 0,
         padding: 0,
         ...parentStyle,
@@ -14,13 +14,19 @@ export default function List({ items = [], parentStyle, childStyle }) {
     >
       {items.map(({ icon, text, isAvailable }, i) => (
         <Flex
-          className={isAvailable ? 'open' : 'closed'}
+          className={isAvailable ? "open" : "closed"}
           as="li"
           sx={{ ...childStyle }}
           key={i}
         >
-          <IconButton sx={styles.listIcon} aria-label="list icon">
-            {icon}
+          <IconButton
+            sx={{
+              ...styles.listIcon,
+              color: isAvailable ? "#29ae5a" : "gray",
+            }}
+            aria-label="list icon"
+          >
+            {isAvailable ? <IoIosCheckmarkCircle /> : <IoIosClosedCircle />}
           </IconButton>
           {text}
         </Flex>
@@ -31,14 +37,14 @@ export default function List({ items = [], parentStyle, childStyle }) {
 
 const styles = {
   listIcon: {
-    width: ['25px', '35px'],
-    height: 'auto',
-    color: 'primary',
+    width: ["25px", "35px"],
+    height: "auto",
+    color: "primary",
     padding: 0,
     fontSize: [3, 5],
-    ml: '-1px',
+    ml: "-1px",
     flexShrink: 0,
-    justifyContent: 'flex-start',
-    mt: '2px',
+    justifyContent: "flex-start",
+    mt: "2px",
   },
 };

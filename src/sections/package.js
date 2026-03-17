@@ -16,30 +16,37 @@ const packages = {
       name: "Free",
       description: "For Small teams or Individuals",
       buttonText: "Get Free",
-      priceWithUnit: "$0",
+      priceWithUnit: "0",
+      note: "Free, forever.",
       points: [
         {
           id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Create your unique link",
+          text: "Unlimited Posts",
           isAvailable: true,
         },
         {
           id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Choose Landing page from template",
+          text: "Unlimited Users",
           isAvailable: true,
         },
         {
           id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Sync your Calendar to avoid conflicts",
+          text: "3 Admin Roles",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCloseCircle />,
-          text: "White Label your landing page",
+          text: "2 Feedback Boards",
+          isAvailable: true,
+        },
+        {
+          id: 5,
+          text: "Roadmap",
+          isAvailable: true,
+        },
+        {
+          id: 6,
+          text: "Changelog",
           isAvailable: true,
         },
       ],
@@ -49,32 +56,39 @@ const packages = {
       header: "Suggested",
       name: "Starter",
       description: "For Instructors and Consultants",
-      priceWithUnit: "$29",
+      priceWithUnit: "29",
+      note: "For small teams.",
       buttonText: "Get Starter",
       anotherOption: "Request feature for your use-case",
       points: [
         {
           id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Everything from Free Plan",
+          text: "Custom Domain",
           isAvailable: true,
         },
         {
           id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Host Webinars",
+          text: "Guest Posting",
           isAvailable: true,
         },
         {
           id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Earn by uploading your Courses",
+          text: "Automatic Login",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCheckmarkCircle />,
-          text: "eCommerce Store ",
+          text: "5 Feedback Boards ",
+          isAvailable: true,
+        },
+        {
+          id: 5,
+          text: "Private Boards ",
+          isAvailable: true,
+        },
+        {
+          id: 6,
+          text: "One Integration",
           isAvailable: true,
         },
       ],
@@ -84,32 +98,39 @@ const packages = {
       headerIcon: <IoIosCheckmarkCircle />,
       name: "Professional",
       description: "For pro content creators",
-      priceWithUnit: "$59",
+      priceWithUnit: "59",
+      note: "For growing teams.",
       buttonText: "Get Pro",
       anotherOption: "",
       points: [
         {
           id: 1,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Drag & Drop Builder",
+          text: "Unlimited Boards",
           isAvailable: true,
         },
         {
           id: 2,
-          icon: <IoIosCheckmarkCircle />,
-          text: "1,000's of Templates",
+          text: "Advanced Search",
           isAvailable: true,
         },
         {
           id: 3,
-          icon: <IoIosCheckmarkCircle />,
-          text: "Blog Support Tools",
+          text: "Single Sign-On",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCheckmarkCircle />,
-          text: "eCommerce Store ",
+          text: "Unlimited Integrations ",
+          isAvailable: true,
+        },
+        {
+          id: 5,
+          text: "Unlimited Admin Roles ",
+          isAvailable: true,
+        },
+        {
+          id: 6,
+          text: "public identity masking ",
           isAvailable: true,
         },
       ],
@@ -122,30 +143,27 @@ const packages = {
       description: "For Small teams or office",
       buttonText: "Start My Page",
       priceWithUnit: "₹0",
+      note: "Free, forever.",
       points: [
         {
           id: 1,
-          icon: <IoIosCheckmarkCircle />,
           text: "Create your unique link",
           isAvailable: true,
         },
         {
           id: 2,
-          icon: <IoIosCheckmarkCircle />,
           text: "Choose Landing page from template",
           isAvailable: true,
         },
         {
           id: 3,
-          icon: <IoIosCheckmarkCircle />,
           text: "Sync your Calendar to avoid conflicts",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCloseCircle />,
           text: "White Label your landing page",
-          isAvailable: true,
+          isAvailable: false,
         },
       ],
     },
@@ -155,30 +173,27 @@ const packages = {
       name: "Business king",
       description: "For Enterprise business",
       priceWithUnit: "₹599",
+      note: "For small teams.",
       buttonText: "Create account",
       anotherOption: "Request feature for your use-case",
       points: [
         {
           id: 1,
-          icon: <IoIosCheckmarkCircle />,
           text: "Everything from Free Plan",
           isAvailable: true,
         },
         {
           id: 2,
-          icon: <IoIosCheckmarkCircle />,
           text: "Host Webinars",
           isAvailable: true,
         },
         {
           id: 3,
-          icon: <IoIosCheckmarkCircle />,
           text: "Earn by uploading your Courses",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCheckmarkCircle />,
           text: "eCommerce Store ",
           isAvailable: true,
         },
@@ -190,30 +205,27 @@ const packages = {
       name: "Pro Master",
       description: "For pro content creators",
       priceWithUnit: "₹899",
+      note: "For growing teams.",
       buttonText: "Coming Soon",
       anotherOption: "",
       points: [
         {
           id: 1,
-          icon: <IoIosCheckmarkCircle />,
           text: "Drag & Drop Builder",
           isAvailable: true,
         },
         {
           id: 2,
-          icon: <IoIosCheckmarkCircle />,
           text: "1,000's of Templates",
           isAvailable: true,
         },
         {
           id: 3,
-          icon: <IoIosCheckmarkCircle />,
           text: "Blog Support Tools",
           isAvailable: true,
         },
         {
           id: 4,
-          icon: <IoIosCheckmarkCircle />,
           text: "eCommerce Store ",
           isAvailable: true,
         },
@@ -293,6 +305,7 @@ export default function Package() {
         <SectionHeader
           // slogan="Pricing"
           title="Pricing that doesn't punish growth"
+          description="Unlimited users on every plan. Because charging per user for a feedback tool is like charging per customer for a store. It's backwards."
         />
         {/* <Flex sx={styles.buttonGroup}>
           <Box sx={styles.buttonGroupInner}>
