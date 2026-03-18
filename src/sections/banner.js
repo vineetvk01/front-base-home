@@ -11,13 +11,13 @@ export default function Banner() {
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox}>
-          <Heading as="h4" variant="heroPrimary">
+          <Heading as="h4" variant="heroPrimary" sx={styles.banner.heading}>
             Build SaaS Products by <br />
               <Box as={MdOutlineFeedback} sx={{ color: 'info', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Collect feedbacks from your customers, <br />
               <Box as={FaVoteYea} sx={{ color: 'accent', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Prioritize with customer votes, <br />
               <Box as={FaHeart} sx={{ color: 'error', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Shipping Updates that your Customers Love.
           </Heading>
-          <Text as="p" variant="heroSecondary">
+          <Text as="p" variant="heroSecondary" sx={styles.banner.description}>
           Frontbase is the all-in-one feedback engine for SaaS teams — with clean idea boards, auto-syncing roadmaps, self-updating changelogs, and engagement loops that run on autopilot.
           </Text>
           <Button variant="primary" sx={styles.banner.startedFreeButton} onClick={() => window.open('https://go.frontbaseapp.com')}>
@@ -58,6 +58,20 @@ const styles = {
       alignItems: 'center',
       gap: ['30px', '40px', '0px'],
     },
+    heading: {
+      lineHeight: [1.4, 1.5, 1.6],
+      marginBottom: ['24px', '28px', '32px'],
+      letterSpacing: '-0.5px',
+    },
+    description: {
+      fontSize: ['16px', '17px', '18px'],
+      lineHeight: [1.7, 1.8],
+      marginBottom: ['32px', '40px'],
+      maxWidth: '600px',
+      marginLeft: ['auto', 'auto', '0px'],
+      marginRight: ['auto', 'auto', '0px'],
+      letterSpacing: '0.3px',
+    },
     videoContainer: {
       width: ['100%', '80%', '200px', null, '57%', '60%', '68%', '60%'],
       mx: ['auto', 'auto', 'right'],
@@ -80,10 +94,21 @@ const styles = {
       px: ['20px', '20px', '0px'],
     },
     subTextContainer: {
-      marginTop: '10px',
+      marginTop: ['32px', '40px'],
       color: 'text_secondary',
       textAlign: ['center', 'center', 'left'],
       px: ['20px', '20px', '0px'],
+      lineHeight: [1.8, 1.9],
+      fontSize: ['15px', '16px'],
+      letterSpacing: '0.2px',
+      '& p': {
+        margin: 0,
+      },
+      '& br': {
+        display: 'block',
+        content: '""',
+        height: ['12px', '14px'],
+      },
     },
     startedFreeButton: {
       borderRadius: '12px',
@@ -95,7 +120,10 @@ const styles = {
       gap: '10px',
       transition: 'all 0.3s ease',
       fontSize: ['16px', '16px', '16px'],
-      py: ['12px', '12px', '12px'],
+      py: ['14px', '16px'],
+      px: ['20px', '24px'],
+      fontWeight: 600,
+      letterSpacing: '0.3px',
       '&:hover': {
         gap: '15px',
       },

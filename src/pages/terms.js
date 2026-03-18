@@ -11,7 +11,7 @@ export default function IndexPage() {
     <ThemeProvider theme={theme}>
       <StickyProvider>
         <Layout>
-          <SEO title="FrontBase Home" />
+          <SEO title="Frontbase — Terms" />
           <Terms />
         </Layout>
       </StickyProvider>

@@ -32,11 +32,21 @@ export default function PriceCard({
           <span className="amount">{priceWithUnit}</span>
           <span className="duration">per month</span>
         </Text>
-        <Text sx={{ textAlign: "center", fontSize: 1, mt: 2, mb: 3 }}>
+        <Text
+          sx={{
+            display: "block",
+            fontWeight: 500,
+            textAlign: "left",
+            fontSize: 1,
+            mt: 2,
+            mb: 4,
+            color: "#6b7280",
+          }}
+        >
           {note}
         </Text>
-        <br></br>
-        <Text sx={{ fontWeight: "bold", mt: 4, mb: 3, color: "#111827" }}>
+
+        <Text sx={{ fontWeight: "bold", mt: 2, mb: 0.5, color: "#111827" }}>
           What's included
         </Text>
         <List
@@ -46,6 +56,19 @@ export default function PriceCard({
         <Box sx={styles.buttonGroup}>
           <Button
             variant="primary"
+            sx={{
+              width: "100%",
+              height: "48px",
+              borderRadius: "10px",
+              fontSize: "16px",
+              fontWeight: "600",
+              backgroundColor: "#111827",
+              color: "#fff",
+              cursor: "pointer",
+              "&:hover": {
+                backgroundColor: "#111827",
+              },
+            }}
             aria-label={buttonText}
             onClick={() => window.open("https://app.klubmeet.com/auth")}
           >
@@ -68,10 +91,10 @@ export default function PriceCard({
 
 const styles = {
   pricingBox: {
-    borderRadius: 20,
+    // borderRadius: 0,
     position: "relative",
     transition: "all 0.3s",
-    p: ["35px 25px", null, null, "40px"],
+    p: ["25px 20px", null, null, "30px"],
     width: ["100%", "75%", "100%"],
     mb: "40px",
     mt: "40px",
@@ -114,7 +137,7 @@ const styles = {
   pricingHeader: {
     justifyContent: "space-between",
     alignItems: "flex-start",
-    mb: ["30px", null, null, null, "40px"],
+    mb: ["10px", null, null, null, "10px"],
     p: {
       fontSize: [1, 2],
       color: "text",
@@ -125,7 +148,7 @@ const styles = {
     },
   },
   price: {
-    fontWeight: 500,
+    fontWeight: 400,
     fontSize: [4, null, 5, null, "30px"],
     lineHeight: 1,
     letterSpacing: "-0.55px",
@@ -133,7 +156,7 @@ const styles = {
     marginBottom: 2,
     display: "flex",
     alignItems: "baseline",
-    justifyContent: "center",
+    justifyContent: "left",
 
     ".currency": {
       fontSize: "14px",
@@ -149,11 +172,13 @@ const styles = {
     },
     ".duration": {
       fontSize: "14px",
+      fontWeight: 400,
       color: "#6B7280",
+
       ml: "6px",
       alignSelf: "flex-end",
     },
-    pt: [4, 6],
+    pt: [2, 3],
   },
   listItem: {
     fontFamily: "DM Sans",
@@ -161,6 +186,7 @@ const styles = {
     fontWeight: "normal",
     fontSize: [1, 2],
     lineHeight: [1.75, 1.6],
+    mt: 2,
     mb: 3,
     alignItems: "flex-start",
     color: "text",
@@ -173,7 +199,7 @@ const styles = {
   },
   buttonGroup: {
     textAlign: "center",
-    mt: ["30px", null, null, null, "35px"],
+    mt: ["15px", null, null, null, "25px"],
     ".free__trail": {
       color: "secondary",
       width: "100%",

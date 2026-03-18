@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { jsx, Container, Box, Flex } from "theme-ui";
+import { jsx, Container, Box, Flex, Text } from "theme-ui";
 import { keyframes } from "@emotion/react";
 import React from "react";
 //import React, { useState } from "react";
@@ -14,7 +14,7 @@ const packages = {
     {
       id: 1,
       name: "Free",
-      description: "For Small teams or Individuals",
+      // description: "For Small teams or Individuals",
       buttonText: "Get Free",
       priceWithUnit: "0",
       note: "Free, forever.",
@@ -53,9 +53,9 @@ const packages = {
     },
     {
       id: 2,
-      header: "Suggested",
+      header: "Recommended",
       name: "Starter",
-      description: "For Instructors and Consultants",
+      //  description: "For Instructors and Consultants",
       priceWithUnit: "29",
       note: "For small teams.",
       buttonText: "Get Starter",
@@ -97,7 +97,7 @@ const packages = {
       id: 3,
       headerIcon: <IoIosCheckmarkCircle />,
       name: "Professional",
-      description: "For pro content creators",
+      //   description: "For pro content creators",
       priceWithUnit: "59",
       note: "For growing teams.",
       buttonText: "Get Pro",
@@ -305,7 +305,19 @@ export default function Package() {
         <SectionHeader
           // slogan="Pricing"
           title="Pricing that doesn't punish growth"
-          description="Unlimited users on every plan. Because charging per user for a feedback tool is like charging per customer for a store. It's backwards."
+          description={
+            <>
+              <span style={{ color: "#121111 ", fontWeight: 500 }}>
+                {" "}
+                Unlimited users on every plan.
+              </span>{" "}
+              <span>
+                {" "}
+                Because charging per user for a feedback tool is like charging
+                per customer for a store. It's backwards.
+              </span>
+            </>
+          }
         />
         {/* <Flex sx={styles.buttonGroup}>
           <Box sx={styles.buttonGroupInner}>
@@ -340,6 +352,33 @@ export default function Package() {
             </Box>
           ))} */}
         </Box>
+        <Box sx={{ display: "flex", alignItems: "flex-start", mt: "30px" }}>
+          <Box
+            sx={{
+              width: "5px",
+              height: "50px",
+              bg: "#6366F1",
+              mr: "16px",
+              borderRadius: "2px",
+            }}
+          />
+
+          <Box
+            sx={{
+              maxWidth: "700px",
+              fontSize: "16px",
+              lineHeight: 1.6,
+              color: "#6b7280",
+            }}
+          >
+            <Text>
+              <strong style={{ color: "#111827" }}>Why so affordable?</strong>{" "}
+              We're bootstrapped, not VC-funded. We answer to customers, not
+              investors. This means we can offer fair pricing that grows with
+              you, not against you.
+            </Text>
+          </Box>
+        </Box>
       </Container>
     </section>
   );
@@ -367,7 +406,7 @@ const styles = {
   pricingWrapper: {
     mb: "-40px",
     mt: "-40px",
-    mx: -3,
+    mx: -1,
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -397,10 +436,25 @@ const styles = {
     },
   },
   pricingItem: {
-    mx: 3,
+    mx: 1,
     display: "flex",
     flexShrink: 0,
     flex: "1 1 33%",
+  },
+  affordable: {
+    mt: "30px",
+    px: ["10px", null, null, "0px"],
+    maxWidth: "700px",
+    mx: 0,
+    px: 0,
+    fontSize: "16px",
+    color: "#6b7280",
+    lineHeight: 1.6,
+    borderLeft: "4px solid #6366f1",
+
+    pl: "12px",
+    // display: "flex",
+    // alignItems: "flex-start",
   },
   buttonGroup: {
     justifyContent: "center",

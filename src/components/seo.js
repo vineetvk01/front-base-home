@@ -2,51 +2,93 @@ import React from 'react';
 import Head from 'next/head';
 
 export default function SEO({
-  description = 'Frontbase is a one-stop client portal solution to manage customers, automate workflows, and interact with clients seamlessly.',
-  author = 'Frontbase Pvt Ltd',
-  meta,
-  title = 'Frontbase - Client Portal Solution',
+  title = 'Frontbase — AI-powered feedback hub',
+  description = 'Frontbase is an AI-powered feedback hub where users submit ideas, vote on features, and help teams prioritize what to build next.',
+  author = 'Frontbase',
+  url = 'https://home.frontbaseapp.com',
+  image = 'https://res.cloudinary.com/ditoriefv/image/upload/v1761897650/production/static-images/portal-mockup-image_lipsy7.png',
+  siteName = 'Frontbase',
+  twitterCard = 'summary_large_image',
+  keywords = [
+    'AI feedback',
+    'feature voting',
+    'idea submission',
+    'roadmap',
+    'feature prioritization',
+    'customer feedback',
+    'feedback hub',
+  ],
+  canonical,
+  meta = [],
 }) {
   const metaData = [
     {
-      name: `description`,
+      name: 'description',
       content: description,
     },
     {
-      property: `og:title`,
+      name: 'keywords',
+      content: keywords.join(', '),
+    },
+    {
+      property: 'og:title',
       content: title,
     },
     {
-      property: `og:description`,
+      property: 'og:description',
       content: description,
     },
     {
-      property: `og:type`,
-      content: `website`,
+      property: 'og:type',
+      content: 'website',
     },
     {
-      name: `twitter:card`,
-      content: `summary`,
+      property: 'og:url',
+      content: canonical || url,
     },
     {
-      name: `twitter:creator`,
+      property: 'og:image',
+      content: image,
+    },
+    {
+      property: 'og:site_name',
+      content: siteName,
+    },
+    {
+      name: 'twitter:card',
+      content: twitterCard,
+    },
+    {
+      name: 'twitter:creator',
       content: author,
     },
     {
-      name: `twitter:title`,
+      name: 'twitter:title',
       content: title,
     },
     {
-      name: `twitter:description`,
+      name: 'twitter:description',
       content: description,
     },
+    {
+      name: 'twitter:image',
+      content: image,
+    },
   ].concat(meta);
+
   return (
     <Head>
       <title>{title}</title>
-      {metaData.map(({ name, content }, i) => (
-        <meta key={i} name={name} content={content} />
-      ))}
+      {canonical ? <link rel="canonical" href={canonical} /> : null}
+      {metaData.map((item, i) => {
+        if (item.name) {
+          return <meta key={`meta-${item.name}-${i}`} name={item.name} content={item.content} />;
+        }
+        if (item.property) {
+          return <meta key={`meta-${item.property}-${i}`} property={item.property} content={item.content} />;
+        }
+        return null;
+      })}
     </Head>
   );
 }
