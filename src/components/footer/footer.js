@@ -41,7 +41,7 @@ export default function Footer() {
             </nav>
           </Box>
           <Text sx={styles.footer.copyright}>
-            <b>Mail: <a href="mailto:frontbaseapp@gmail.com">admin@frontbaseapp.com</a></b>
+            <b>Mail: <a href="mailto:vineet@frontbaseapp.com">vineet@frontbaseapp.com</a></b>
           </Text>
           <br />
           <Text sx={styles.footer.copyright}>
