@@ -1,7 +1,7 @@
 import { Box, Card, Text, Heading, Button } from "theme-ui";
 import React from "react";
 import List from "./list";
-
+import { IoIosArrowForward } from "react-icons/io";
 export default function PriceCard({
   data: {
     header,
@@ -65,6 +65,25 @@ export default function PriceCard({
               backgroundColor: "#111827",
               color: "#fff",
               cursor: "pointer",
+
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+
+              ".arrowCircle": {
+                marginLeft: "8px",
+                width: "20px",
+                height: "20px",
+                borderRadius: "50%",
+                backgroundColor: "#fff ",
+                color: "#111827",
+
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "13px",
+              },
+
               "&:hover": {
                 backgroundColor: "#111827",
               },
@@ -73,6 +92,9 @@ export default function PriceCard({
             onClick={() => window.open("https://app.klubmeet.com/auth")}
           >
             {buttonText}
+            <span className="arrowCircle">
+              <IoIosArrowForward class="arrow" />
+            </span>
           </Button>
           {anotherOption && (
             <Button
