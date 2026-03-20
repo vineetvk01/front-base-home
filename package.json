@@ -3,18 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3010",
+    "dev": "next dev -p 3010  --webpack",
     "build": "next build",
     "serve": "next start",
     "export": "next export",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.14.0",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.0.17",
     "globby": "^13.2.2",
     "isomorphic-unfetch": "^4.0.2",
-    "next": "^14.2.4",
+    "next": "^16.1.6",
     "prettier": "^3.6.2",
     "rc-drawer": "^4.4.2",
     "react": "^18.2.0",

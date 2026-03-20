@@ -1,13 +1,19 @@
 /** @jsxImportSource theme-ui */
-import { ThemeUIProvider } from 'theme-ui';
-import { StickyProvider } from '../contexts/app/app.provider';
-import theme from 'theme';
-import SEO from 'components/seo';
-import Layout from 'components/layout';
-import Banner from '../sections/banner';
-import Benefits from '../sections/benefits';
+import Benefits from "../sections/benefits";
+import { ThemeUIProvider } from "theme-ui";
+import { StickyProvider } from "../contexts/app/app.provider";
+import theme from "theme";
+import SEO from "components/seo";
+import Layout from "components/layout";
+import Banner from "../sections/banner";
+import Package from "../sections/package";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://home.frontbaseapp.com';
+// import { ThemeUIProvider } from "theme-ui";
+// import { StickyProvider } from "../contexts/app/app.provider";
+// import theme from "theme";
+// import SEO from "components/seo";
+// import Layout from "components/layout";
+// import Banner from "../sections/banner";
 
 export default function IndexPage() {
   return (
@@ -17,11 +23,13 @@ export default function IndexPage() {
           <SEO
             title="Frontbase — AI-powered feedback hub for ideas & feature voting"
             description="Frontbase is an AI-powered feedback hub where users submit ideas, vote on features, and help teams prioritize what to build next."
-            canonical={`${SITE_URL}/`}
+            const
+            SITE_URL="http://localhost:3010"
           />
           <Banner />
           <Benefits />
           {/* <SamplePortals /> */}
+          <Package />
         </Layout>
       </StickyProvider>
     </ThemeUIProvider>
