@@ -6,6 +6,8 @@ import SEO from 'components/seo';
 import Layout from 'components/layout';
 import Banner from '../sections/banner';
 import Benefits from '../sections/benefits';
+import Pricing from '../sections/pricing';
+import Faq from '../sections/faq';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://home.frontbaseapp.com';
 
@@ -21,6 +23,8 @@ export default function IndexPage() {
           />
           <Banner />
           <Benefits />
+          <Pricing />
+          <Faq />
           {/* <SamplePortals /> */}
         </Layout>
       </StickyProvider>

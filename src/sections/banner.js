@@ -11,14 +11,13 @@ export default function Banner() {
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
         <Box sx={styles.banner.contentBox}>
-          <Heading as="h4" variant="heroPrimary" sx={styles.banner.heading}>
-            Build SaaS Products by <br />
-              <Box as={MdOutlineFeedback} sx={{ color: 'info', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Collect feedbacks from your customers, <br />
-              <Box as={FaVoteYea} sx={{ color: 'accent', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Prioritize with customer votes, <br />
-              <Box as={FaHeart} sx={{ color: 'error', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mx: 2 }} /> Shipping Updates that your Customers Love.
+          <Heading as="h1" variant="heroPrimary" sx={styles.banner.heading}>
+              <Box as={MdOutlineFeedback} sx={{ color: 'info', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mr: 2 }} />Collect user feedback. <br />
+              <Box as={FaVoteYea} sx={{ color: 'accent', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mr: 2 }} />Prioritize what matters. <br />
+              <Box as={FaHeart} sx={{ color: 'error', fontSize: 4, display: 'inline-block', verticalAlign: 'middle', mr: 2 }} />Ship updates customers love.
           </Heading>
           <Text as="p" variant="heroSecondary" sx={styles.banner.description}>
-          Frontbase is the all-in-one feedback engine for SaaS teams — with clean idea boards, auto-syncing roadmaps, self-updating changelogs, and engagement loops that run on autopilot.
+          All-in-one feedback boards, public roadmaps, and self-updating changelogs — built for fast-moving SaaS teams.
           </Text>
           <Button variant="primary" sx={styles.banner.startedFreeButton} onClick={() => window.open('https://go.frontbaseapp.com')}>
             Get Started Free 

@@ -4,6 +4,10 @@ export default [
     label: 'Home',
   },
   {
+    path: 'pricing',
+    label: 'Pricing',
+  },
+  {
     path: '',
     label: 'Release Notes',
     onClick: () => {
