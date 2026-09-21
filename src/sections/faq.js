@@ -5,29 +5,40 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 const faqData = [
   {
-    id: 'custom-domain',
-    question: 'Can I connect my own custom domain?',
+    id: 'deliverability',
+    question: 'Will my emails actually land in the inbox?',
     answer:
-      'Yes, on Growth and Business. Point a CNAME record at Frontbase and your board runs at feedback.yourdomain.com with an SSL certificate issued automatically and all Frontbase branding removed. Setup takes about five minutes. On the free plan your board lives on a frontbaseapp.com subdomain.',
+      'That is the part we spend the most engineering on. Every mailbox you connect is warmed continuously at no extra cost, sending is spread across your accounts with randomised human-like pacing, and we check your SPF, DKIM and DMARC records before your first campaign goes out. You also get alerts if a domain starts trending toward spam so you can pull back before it costs you the domain.',
   },
   {
-    id: 'migration',
-    question:
-      'How do I migrate my existing feedback or spreadsheets into Frontbase?',
+    id: 'mailboxes',
+    question: 'Can I connect my existing Google Workspace or Outlook mailboxes?',
     answer:
-      'Upload a CSV and map your columns to title, description, submitter and vote count. Existing votes and submitter emails carry over, so nothing restarts at zero. Coming from Canny, Trello, Jira or a Google Sheet? Send us the export and we will run the first import for you on any paid plan.',
+      'Yes. Connect Google Workspace or Microsoft 365 in one OAuth click, or use plain SMTP/IMAP for any other provider. Your mailboxes stay yours — we send through them rather than through a shared pool, which is a large part of why placement holds up. Starter includes 2 mailboxes, Growth 10, and Scale is unlimited.',
   },
   {
-    id: 'voting-accounts',
-    question: 'Will my users need to create a new account to vote?',
+    id: 'ai-credits',
+    question: 'What are AI credits, and what uses them?',
     answer:
-      'No. Anonymous voting is enabled by default, so a user can upvote in one click with no signup. If you want verified identities, turn on magic-link email instead: users get a one-tap link, never a password. On Business you can pass your own logged-in users straight through with SSO/SAML so voting happens under their existing account.',
+      'One credit is one AI action: drafting a sequence step, personalising an email for a specific prospect, classifying an inbound reply, or researching a company. Warmup, sending, scheduling and the unified inbox never consume credits. Starter includes 500 per month, Growth 5,000 and Scale 25,000, and unused credits do not roll over.',
   },
   {
     id: 'plan-limits',
-    question: "What happens if I exceed my plan's limits?",
+    question: "What happens if I hit my monthly email or credit limit?",
     answer:
-      'Nothing breaks and nothing gets deleted. Your board stays live and every existing idea, vote and comment stays intact. On the free plan you get a heads-up as you approach 100 tracked users, and tracking of new users pauses until you upgrade. Paid plans include unlimited tracked users and unlimited feedback, so there is no limit to exceed.',
+      'Nothing gets deleted and no campaign is lost. Sequences pause at your sending cap and resume when the month resets or the moment you upgrade, and AI features fall back to your own templates once credits run out. We notify you at 80% so it is never a surprise. Growth and Scale include unlimited sending, so the only meter left is credits.',
+  },
+  {
+    id: 'compliance',
+    question: 'Is cold email legal, and how do you handle compliance?',
+    answer:
+      'Cold email to business contacts is legal in most jurisdictions when you identify yourself, state why you are writing, and honour opt-outs — that is the core of CAN-SPAM, and GDPR adds a legitimate-interest test for EU recipients. Frontbase adds a one-click unsubscribe to every send, maintains a permanent suppression list across all your campaigns, and blocks addresses that have opted out even if they reappear in a later import. We do not sell contact lists and we do not allow purchased-list imports.',
+  },
+  {
+    id: 'billing',
+    question: 'Can I switch plans or cancel anytime?',
+    answer:
+      'Yes, both, self-serve and without talking to anyone. Upgrades apply immediately and we prorate the difference; downgrades take effect at the end of your current period so you keep what you paid for. Cancel and your account drops to read-only — your campaigns, replies and contact history stay exported-ready rather than being deleted.',
   },
 ];
 
@@ -44,7 +55,7 @@ export default function Faq() {
             Questions before you upgrade
           </Heading>
           <Text sx={styles.description}>
-            The things teams ask us most before they move their feedback to
+            The things teams ask us most before they point their outbound at
             Frontbase.
           </Text>
         </Box>
@@ -93,7 +104,7 @@ export default function Faq() {
         <Text sx={styles.footnote}>
           Still deciding?{' '}
           <Link
-            href="https://calendly.com/vineetsri/15min"
+            href="https://calendly.com/vineetsri/basic-intro"
             target="_blank"
             rel="noopener noreferrer"
             sx={styles.footnoteLink}
@@ -121,7 +132,8 @@ const styles = {
   title: {
     fontSize: ['28px', '32px', '42px', '48px'],
     fontWeight: 700,
-    lineHeight: [1.3, 1.4],
+    lineHeight: [1.25, 1.2, 1.16, 1.12],
+    letterSpacing: ['-0.02em', '-0.025em', '-0.03em'],
     color: 'heading',
     mb: ['20px', '25px'],
   },

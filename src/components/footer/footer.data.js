@@ -10,50 +10,50 @@ export default {
     {
       id: 1,
       iconSrc: From,
-      altText: 'Feedback',
-      title: 'Collect Actionable Feedback',
+      altText: 'Sequences',
+      title: 'Sequences Written For You',
       description:
-        'Give your users a simple way to share ideas and suggestions. Every input is tracked, so nothing slips through the cracks.',
+        'Describe your offer once. Your agent drafts the opener, the follow-ups and the fallbacks, personalised per prospect rather than mail-merged.',
     },
     {
       id: 2,
-      iconSrc: Community,
-      altText: 'Customers',
-      title: 'Vote & Prioritize',
+      iconSrc: Database,
+      altText: 'Deliverability',
+      title: 'Deliverability On Autopilot',
       description:
-        'Let your community vote on features. Instantly see what’s popular and focus your energy where it delivers the most impact.',
+        'Continuous warmup on every connected mailbox, randomised send pacing, and DNS checks that catch SPF and DKIM problems before you send.',
     },
     {
       id: 3,
-      iconSrc: Cash,
-      altText: 'Chat',
-      title: 'Automate Customer Updates',
+      iconSrc: Chat,
+      altText: 'Inbox',
+      title: 'One Unified Inbox',
       description:
-        'Keep users engaged with automatic notifications and status updates—without the manual effort.',
+        'Every reply from every sending account lands in one place, sorted by intent, with a draft response already waiting for you.',
     },
     {
       id: 4,
       iconSrc: Yes,
-      altText: 'Approve',
-      title: 'Track Issues & Ship Fixes',
+      altText: 'Replies',
+      title: 'Replies Handled Around The Clock',
       description:
-        'Show customers you’re listening by turning reported bugs into clear, trackable tasks that lead to fast resolutions.',
+        'Your agent answers in your voice, pauses the sequence the moment someone responds, and escalates the prospects worth your time.',
     },
     {
       id: 5,
-      iconSrc: Chat,
-      altText: 'Details',
-      title: 'Discuss & Understand Requests',
+      iconSrc: Community,
+      altText: 'Meetings',
+      title: 'Meetings Booked In-Thread',
       description:
-        'Go beyond feature lists. Dive into conversations that reveal the “why” behind every request and build with context.',
+        'Real times from your calendar offered inside the same email thread, confirmed without a scheduling link or a single extra round trip.',
     },
     {
       id: 6,
-      iconSrc: Database,
-      altText: 'Stay Organized',
-      title: 'Stay in Sync & Organized',
+      iconSrc: Cash,
+      altText: 'Pipeline',
+      title: 'Pipeline You Can Actually See',
       description:
-        'Keep your roadmap clear and transparent with automatic changelogs that align updates across your team and customers.',
+        'Know which sequence, mailbox and opener produced each meeting, so you scale what works instead of guessing at it.',
     },
   ],
   menuItem: [

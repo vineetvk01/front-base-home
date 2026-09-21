@@ -9,9 +9,9 @@ export default function Footer() {
     <footer sx={styles.footer}>
       <Container>
         <Box sx={styles.sectionTitle}>
-          <Heading as="h2">Built for modern SaaS teams,<br />not feedback chaos</Heading>
+          <Heading as="h2">Built for small teams,<br />not outbound agencies</Heading>
           <Text sx={styles.sectionDescription}>
-            We built Frontbase because existing tools are either too expensive, too complicated, or ignore what customers actually want. Frontbase is simple, powerful, and customer-centric.
+            We built Frontbase because outreach tooling is priced for twenty-seat sales floors and takes a week to configure. If you are two people who need a pipeline by Friday, this is for you.
           </Text>
         </Box>
         <Grid sx={styles.widgets}>
@@ -110,8 +110,8 @@ const styles = {
       fontWeight: 700,
       color: 'heading',
       mb: [4, 5, 6],
-      lineHeight: 1.2,
-      letterSpacing: '-0.5px',
+      lineHeight: [1.22, 1.18, 1.14],
+      letterSpacing: ['-0.02em', '-0.025em', '-0.03em'],
     },
   },
   sectionDescription: {

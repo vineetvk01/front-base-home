@@ -4,6 +4,10 @@ export default [
     label: 'Home',
   },
   {
+    path: 'features',
+    label: 'Features',
+  },
+  {
     path: 'pricing',
     label: 'Pricing',
   },

@@ -7,6 +7,7 @@ import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 
 const LogoDark = 'assets/gravity-icon.png';
+const BOOK_A_CALL_URL = 'https://calendly.com/vineetsri/basic-intro';
 
 export default function Header({ className }) {
   return (
@@ -34,10 +35,10 @@ export default function Header({ className }) {
 
             <Button
               variant="secondary"
-              aria-label="Get Started"
-              onClick={() =>  window.open('https://go.frontbaseapp.com/auth/login')}
+              aria-label="Book a call"
+              onClick={() => window.open(BOOK_A_CALL_URL, '_blank', 'noopener,noreferrer')}
             >
-              Sign in
+              Book a call
             </Button>
             <MobileDrawer />
           </Container>
@@ -82,9 +83,10 @@ const styles = {
     a: {
       fontSize: 2,
       fontWeight: 'body',
-      px: 5,
+      px: [4, null, null, null, 5],
       cursor: 'pointer',
       lineHeight: '1.2',
+      whiteSpace: 'nowrap',
       transition: 'all 0.15s',
       '&:hover': {
         color: 'primary',

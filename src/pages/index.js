@@ -6,6 +6,7 @@ import SEO from 'components/seo';
 import Layout from 'components/layout';
 import Banner from '../sections/banner';
 import Benefits from '../sections/benefits';
+import Features from '../sections/features';
 import Pricing from '../sections/pricing';
 import Faq from '../sections/faq';
 
@@ -17,12 +18,13 @@ export default function IndexPage() {
       <StickyProvider>
         <Layout>
           <SEO
-            title="Frontbase — AI-powered feedback hub for ideas & feature voting"
-            description="Frontbase is an AI-powered feedback hub where users submit ideas, vote on features, and help teams prioritize what to build next."
+            title="Frontbase — Let an AI agent run your cold email outreach"
+            description="Frontbase writes your cold email sequences, warms your inboxes, handles replies and books meetings automatically. 14-day free trial, no credit card required."
             canonical={`${SITE_URL}/`}
           />
           <Banner />
           <Benefits />
+          <Features />
           <Pricing />
           <Faq />
           {/* <SamplePortals /> */}
