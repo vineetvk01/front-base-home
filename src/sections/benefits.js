@@ -1,39 +1,39 @@
 /** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui';
 import { Container, Box, Heading, Text, Grid } from 'theme-ui';
-import { IoHeartCircle } from 'react-icons/io5';
-import { MdTrendingUp } from 'react-icons/md';
+import { MdOutlineMarkEmailRead } from 'react-icons/md';
 import { MdAccessTime } from 'react-icons/md';
-import { FaUsers } from 'react-icons/fa';
+import { FaInbox } from 'react-icons/fa';
+import { FaRobot } from 'react-icons/fa';
 
 const benefitsData = [
   {
     id: 1,
-    icon: IoHeartCircle,
-    title: '200+ votes on one idea',
-    text: "See what users really want, not just who shouts loudest",
-    iconColor: '#FF6B6B',
+    icon: MdOutlineMarkEmailRead,
+    title: 'Unlimited mailbox warmup',
+    text: 'Every inbox you connect gets warmed and kept healthy, free of charge',
+    iconColor: '#06B6D4',
   },
   {
     id: 2,
-    icon: MdTrendingUp,
-    title: '10% lower churn',
-    text: 'Users stay when they see you building their requests',
-    iconColor: '#51CF66',
+    icon: FaRobot,
+    title: 'Replies handled 24/7',
+    text: 'Your agent reads intent, answers in your voice, and escalates the hot ones',
+    iconColor: '#A855F7',
   },
   {
     id: 3,
     icon: MdAccessTime,
-    title: '5 hours/week saved',
-    text: 'Stop managing feedback in spreadsheets and emails',
-    iconColor: '#4C6EF5',
+    title: 'First campaign in 10 minutes',
+    text: 'Connect a mailbox, paste your list, describe the offer — that is the setup',
+    iconColor: '#51CF66',
   },
   {
     id: 4,
-    icon: FaUsers,
-    title: 'Entire team aligned',
-    text: 'Everyone sees the same priorities, no more debates',
-    iconColor: '#A855F7',
+    icon: FaInbox,
+    title: 'One inbox for every mailbox',
+    text: 'Stop tab-hopping between sending accounts to find who answered',
+    iconColor: '#4C6EF5',
   },
 ];
 
@@ -43,12 +43,12 @@ export default function Benefits() {
       <Container>
         <Box sx={styles.contentBox}>
           <Heading as="h2" sx={styles.title}>
-            Your users are telling you what to build.
+            Cold outreach is a full-time job.
             <br />
-            Are you listening?
+            Give it to an agent.
           </Heading>
           <Text sx={styles.description}>
-            Teams using Frontbase see 40% more feedback submissions because users finally have a place where their voice matters. No more scattered emails, lost Slack messages, or ignored feature requests.
+            Sequencing, follow-ups, deliverability, reply triage, scheduling — it is a pile of small jobs that eats a founder's week. Frontbase runs all of it in one place, and tells you only when someone wants to talk.
           </Text>
         </Box>
 
@@ -85,7 +85,8 @@ const styles = {
   title: {
     fontSize: ['28px', '32px', '42px', '48px'],
     fontWeight: 700,
-    lineHeight: [1.3, 1.4],
+    lineHeight: [1.25, 1.2, 1.16, 1.12],
+    letterSpacing: ['-0.02em', '-0.025em', '-0.03em'],
     color: 'heading',
     mb: ['20px', '25px', '30px'],
   },

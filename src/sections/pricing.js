@@ -1,88 +1,91 @@
 /** @jsxImportSource theme-ui */
 import { useState } from 'react';
+import { keyframes } from '@emotion/react';
 import { Container, Box, Flex, Heading, Text, Button, Grid } from 'theme-ui';
 import { IoIosCheckmarkCircle, IoIosCloseCircle } from 'react-icons/io';
+import { FaGift } from 'react-icons/fa';
 
-const SIGNUP_URL = 'https://go.frontbaseapp.com';
-const DEMO_URL = 'https://calendly.com/vineetsri/15min';
+// Soft attention pulse — draws the eye to the offer without nagging.
+const pulse = keyframes`
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45); }
+  50% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+`;
+
+// Every tier CTA routes back to the one email capture in the hero.
+import { nudgeEmailForm } from 'lib/nudge-email-form';
 
 // Annual billing = 10x the monthly price, i.e. 2 months free.
 const plans = [
   {
     id: 'starter',
     name: 'Starter',
-    tagline: 'For founders validating their first ideas',
-    monthly: 0,
-    annual: 0,
-    buttonText: 'Start free forever',
+    tagline: 'For founders sending their first campaigns',
+    monthly: 19,
+    annual: 190,
+    buttonText: 'Start free trial',
     buttonVariant: 'secondary',
-    url: SIGNUP_URL,
+    ctaNote: '14-day trial · No credit card',
     features: [
-      { text: '1 public feedback board', isAvailable: true },
-      { text: 'Unlimited ideas, votes & comments', isAvailable: true },
-      { text: 'Public roadmap & changelog', isAvailable: true },
-      { text: 'Up to 100 tracked users', isAvailable: true },
-      { text: 'Custom domain & branding removal', isAvailable: false },
-      { text: 'Private boards & integrations', isAvailable: false },
+      { text: '2,000 emails per month', isAvailable: true, highlight: true },
+      { text: '2 connected mailboxes', isAvailable: true },
+      { text: '500 AI credits per month', isAvailable: true },
+      { text: 'Unlimited contacts & unlimited warmup', isAvailable: true },
+      { text: 'Unified inbox', isAvailable: true },
+      { text: 'Meeting scheduler', isAvailable: false },
+      { text: 'API, MCP & webhooks', isAvailable: false },
     ],
   },
   {
     id: 'growth',
     name: 'Growth',
     badge: 'Most popular',
-    tagline: 'For SaaS teams shipping on customer demand',
-    monthly: 19,
-    annual: 190,
-    buttonText: 'Start 14-day free trial',
+    tagline: 'For teams with outbound as a real channel',
+    monthly: 49,
+    annual: 490,
+    buttonText: 'Start free trial',
     buttonVariant: 'primary',
-    url: SIGNUP_URL,
+    ctaNote: '14-day trial · No credit card',
     highlighted: true,
     featuresIntro: 'Everything in Starter, plus:',
     features: [
+      { text: 'Unlimited email sending', isAvailable: true, highlight: true },
+      { text: '10 connected mailboxes', isAvailable: true, highlight: true },
+      { text: '5,000 AI credits per month', isAvailable: true },
+      { text: 'Up to 3 team seats', isAvailable: true },
       {
-        text: 'Custom domain — feedback.yourdomain.com',
+        text: 'Meeting scheduler with calendar sync',
         isAvailable: true,
         highlight: true,
       },
-      { text: 'Frontbase branding removed', isAvailable: true, highlight: true },
-      { text: 'Unlimited boards & unlimited tracked users', isAvailable: true },
-      { text: 'Slack & Webhooks integrations', isAvailable: true },
-      {
-        text: 'Prioritization matrix & impact scoring',
-        isAvailable: true,
-        highlight: true,
-      },
-      { text: 'Auto status updates & email digests', isAvailable: true },
+      { text: 'API, MCP & webhooks', isAvailable: true, highlight: true },
+      { text: 'CRM integrations & A/B testing', isAvailable: true },
     ],
   },
   {
-    id: 'business',
-    name: 'Business',
-    tagline: 'For product orgs with multiple teams',
-    monthly: 49,
-    annual: 490,
+    id: 'scale',
+    name: 'Scale',
+    tagline: 'For sales teams running outbound at volume',
+    monthly: 99,
+    annual: 990,
     buttonText: 'Talk to us',
     buttonVariant: 'secondary',
-    url: DEMO_URL,
+    ctaNote: 'We reply within one business day',
     featuresIntro: 'Everything in Growth, plus:',
     features: [
       {
-        text: 'Private internal boards',
+        text: 'Unlimited mailboxes & unlimited seats',
         isAvailable: true,
         highlight: true,
       },
+      { text: '25,000 AI credits per month', isAvailable: true, highlight: true },
       {
-        text: 'Role-based access for admins, moderators & viewers',
+        text: 'AI prospect research & list building',
         isAvailable: true,
         highlight: true,
       },
-      {
-        text: 'Jira, Linear & GitHub two-way sync',
-        isAvailable: true,
-        highlight: true,
-      },
-      { text: 'AI duplicate detection & theme clustering', isAvailable: true },
-      { text: 'Revenue-weighted scoring & user segments', isAvailable: true },
+      { text: 'Round-robin routing & team reports', isAvailable: true },
+      { text: 'Deliverability monitoring & DNS setup', isAvailable: true },
+      { text: 'SSO / SAML', isAvailable: true },
       { text: 'Priority support & guided onboarding', isAvailable: true },
     ],
   },
@@ -100,12 +103,12 @@ export default function Pricing() {
       <Container>
         <Box sx={styles.contentBox}>
           <Heading as="h2" sx={styles.title}>
-            Simple pricing that grows with your roadmap
+            Pricing that scales with your send volume
           </Heading>
           <Text sx={styles.description}>
-            Start free and stay free as long as you like. Upgrade when you need
-            your own domain, private boards, or your feedback flowing straight
-            into Jira, Slack and Linear.
+            Every plan includes unlimited contacts and unlimited inbox warmup.
+            You pay for sending volume, mailboxes and AI credits — the things
+            that actually grow when outbound starts working.
           </Text>
         </Box>
 
@@ -130,15 +133,32 @@ export default function Pricing() {
               Annual
             </button>
           </Box>
-          <Text as="span" sx={styles.saveBadge}>
-            Get 2 months free
-          </Text>
+          {isAnnual ? (
+            <Box sx={{ ...styles.saveBadge, ...styles.saveBadgeApplied }}>
+              <IoIosCheckmarkCircle sx={styles.saveBadgeIcon} />
+              <Text as="span">2 months free applied</Text>
+            </Box>
+          ) : (
+            // Clickable so the offer can be claimed directly, not just read.
+            <Box
+              as="button"
+              type="button"
+              aria-label="Switch to annual billing and get 2 months free"
+              onClick={() => setBilling('annual')}
+              sx={{ ...styles.saveBadge, ...styles.saveBadgeOffer }}
+            >
+              <FaGift sx={styles.saveBadgeIcon} />
+              <Text as="span">Get 2 months free</Text>
+              <Text as="span" sx={styles.saveBadgeSave}>
+                Save 17%
+              </Text>
+            </Box>
+          )}
         </Flex>
 
         <Grid sx={styles.grid}>
           {plans.map((plan) => {
             const price = isAnnual ? monthlyEquivalent(plan) : plan.monthly;
-            const isFree = plan.monthly === 0;
 
             return (
               <Box
@@ -160,15 +180,13 @@ export default function Pricing() {
                     ${price}
                   </Text>
                   <Text as="span" sx={styles.pricePeriod}>
-                    {isFree ? '/forever' : '/month'}
+                    /month
                   </Text>
                 </Flex>
                 <Text sx={styles.priceNote}>
-                  {isFree
-                    ? 'No credit card required'
-                    : isAnnual
-                      ? `Billed annually at $${plan.annual}`
-                      : `or $${plan.annual}/year — save $${plan.monthly * 12 - plan.annual}`}
+                  {isAnnual
+                    ? `Billed annually at $${plan.annual}`
+                    : `or $${plan.annual}/year — save $${plan.monthly * 12 - plan.annual}`}
                 </Text>
 
                 <Button
@@ -179,10 +197,11 @@ export default function Pricing() {
                       ? styles.ctaSecondary
                       : {}),
                   }}
-                  onClick={() => window.open(plan.url)}
+                  onClick={nudgeEmailForm}
                 >
                   {plan.buttonText}
                 </Button>
+                <Text sx={styles.ctaNote}>{plan.ctaNote}</Text>
 
                 {plan.featuresIntro && (
                   <Text sx={styles.featuresIntro}>{plan.featuresIntro}</Text>
@@ -217,8 +236,9 @@ export default function Pricing() {
         </Grid>
 
         <Text sx={styles.footnote}>
-          All paid plans include unlimited tracked users and unlimited feedback.
-          Cancel anytime — no contracts, no setup fees.
+          All plans include unlimited contacts, unlimited inbox warmup and
+          unlimited sequences. Change plans or cancel anytime — no contracts, no
+          setup fees.
         </Text>
       </Container>
     </section>
@@ -239,7 +259,8 @@ const styles = {
   title: {
     fontSize: ['28px', '32px', '42px', '48px'],
     fontWeight: 700,
-    lineHeight: [1.3, 1.4],
+    lineHeight: [1.25, 1.2, 1.16, 1.12],
+    letterSpacing: ['-0.02em', '-0.025em', '-0.03em'],
     color: 'heading',
     mb: ['20px', '25px'],
   },
@@ -286,15 +307,56 @@ const styles = {
     },
   },
   saveBadge: {
-    display: 'inline-block',
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '8px',
+    fontFamily: 'body',
     fontSize: ['12px', '13px'],
     fontWeight: 700,
     letterSpacing: '0.3px',
-    color: 'success',
-    backgroundColor: 'rgba(16, 185, 129, 0.1)',
     borderRadius: '30px',
-    padding: '6px 14px',
+    padding: '8px 8px 8px 14px',
     whiteSpace: 'nowrap',
+    border: 0,
+    lineHeight: 1.2,
+  },
+  // Unclaimed: solid fill so it reads as a live offer rather than a label.
+  saveBadgeOffer: {
+    color: 'white',
+    backgroundColor: 'success',
+    cursor: 'pointer',
+    animation: `${pulse} 2.4s ease-out infinite`,
+    transition: 'transform 0.2s ease, filter 0.2s ease',
+    '&:hover': {
+      filter: 'brightness(1.08)',
+      transform: 'translateY(-1px)',
+    },
+    '&:focus-visible': {
+      outline: '2px solid',
+      outlineColor: 'heading',
+      outlineOffset: '2px',
+    },
+    '@media (prefers-reduced-motion: reduce)': {
+      animation: 'none',
+    },
+  },
+  // Claimed: recedes to a confirmation so it stops competing for attention.
+  saveBadgeApplied: {
+    color: 'success',
+    backgroundColor: 'rgba(16, 185, 129, 0.12)',
+    padding: '8px 14px',
+  },
+  saveBadgeIcon: {
+    flexShrink: 0,
+    fontSize: '15px',
+  },
+  saveBadgeSave: {
+    fontSize: ['11px', '12px'],
+    fontWeight: 700,
+    letterSpacing: '0.4px',
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
+    borderRadius: '30px',
+    padding: '3px 9px',
   },
   grid: {
     display: 'grid',
@@ -360,7 +422,11 @@ const styles = {
     fontWeight: 700,
     lineHeight: 1,
     color: 'heading',
-    letterSpacing: '-1px',
+    letterSpacing: '-0.03em',
+    // Lining tabular figures so $19 / $49 / $99 share a width and the three
+    // columns line up, and digits don't shift when the billing toggle flips.
+    fontVariantNumeric: 'tabular-nums lining-nums',
+    fontFeatureSettings: "'tnum' 1, 'lnum' 1",
   },
   pricePeriod: {
     fontSize: ['15px', '16px'],
@@ -380,11 +446,18 @@ const styles = {
     fontWeight: 600,
     py: '14px',
     px: '20px',
-    mb: ['20px', '24px'],
+    mb: '10px',
   },
   ctaSecondary: {
     border: '1px solid',
     borderColor: 'border_color',
+  },
+  ctaNote: {
+    display: 'block',
+    textAlign: 'center',
+    fontSize: '12px',
+    color: 'text_secondary',
+    mb: ['20px', '24px'],
   },
   featuresIntro: {
     fontSize: ['13px', '14px'],

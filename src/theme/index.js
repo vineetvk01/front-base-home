@@ -47,23 +47,31 @@ export default {
     '1620px',
   ],
   fonts: {
-    body: "'DM Sans', sans-serif",
-    heading: "'DM Sans', sans-serif",
+    // System stack after DM Sans so pre-load text renders in a metrically similar
+    // face instead of falling back to Times.
+    body: "'DM Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    heading:
+      "'DM Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
   },
   fontSizes: [12, 15, 16, 18, 20, 22, 24, 28, 32, 36, 42, 48, 52, 64],
   fontWeights: {
-    body: 'normal',
+    body: 400,
+    medium: 500,
     heading: 500,
+    semibold: 600,
     bold: 700,
   },
   lineHeights: {
-    body: 1.8,
-    heading: 1.5,
+    body: 1.75,
+    heading: 1.15,
+    snug: 1.35,
   },
   letterSpacings: {
     body: 'normal',
-    caps: '0.2em',
-    heading: '-0.5px',
+    caps: '0.12em',
+    // Larger type needs tighter tracking to look optically even.
+    heading: '-0.02em',
+    display: '-0.03em',
   },
   space: [0, 5, 10, 15, 20, 25, 30, 50, 80, 100, 120, 150],
   // variants can use custom, user-defined names
@@ -164,25 +172,23 @@ export default {
       color: 'heading',
       fontFamily: 'heading',
       fontWeight: 700,
-      fontSize: [3, 4, 5, 6],
-      lineHeight: [1.25, 1.2, 1.15, 1.1],
-      mb: [2, 3, 4, 5],
-      letterSpacing: '-0.02em',
-      textRendering: 'optimizeLegibility',
-      WebkitFontSmoothing: 'antialiased',
-      MozOsxFontSmoothing: 'grayscale',
+      // Explicit px, not theme scale indices — the old [3,4,5,6] resolved to
+      // 18-24px, leaving the h1 smaller than every section heading below it.
+      fontSize: ['34px', '40px', '46px', '54px', '58px'],
+      lineHeight: [1.15, 1.12, 1.08, 1.06],
+      mb: [3, 4, 4, 5],
+      // Tracking tightens as the type scales up.
+      letterSpacing: ['-0.025em', '-0.03em', '-0.035em'],
+      textWrap: 'balance',
     },
     heroSecondary: {
       fontSize: [1, null, '16px', null, null, '18px', 3],
-      lineHeight: [1.6, null, null, 1.7],
+      lineHeight: [1.65, null, null, 1.7],
       fontWeight: 400,
       mb: 5,
       color: 'text',
-      letterSpacing: '0.01em',
+      letterSpacing: '0',
       fontFamily: 'body',
-      textRendering: 'optimizeLegibility',
-      WebkitFontSmoothing: 'antialiased',
-      MozOsxFontSmoothing: 'grayscale',
     },
     title: {
       // extends the text.heading styles
@@ -194,10 +200,10 @@ export default {
     },
     lead: {
       fontSize: 40,
-      fontFamily: 'DM Sans',
-      fontWeight: '500',
-      lineHeight: '60px',
-      letterSpacing: '-1.5px',
+      fontFamily: 'heading',
+      fontWeight: 500,
+      lineHeight: 1.25,
+      letterSpacing: '-0.03em',
       color: '#0F2137',
     },
     muted: {
@@ -372,7 +378,14 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       fontWeight: 'body',
-      fontSmoothing: 'antialiased',
+      // Set once here rather than repeated per text variant.
+      WebkitFontSmoothing: 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
+      textRendering: 'optimizeLegibility',
+      fontOpticalSizing: 'auto',
+      // Kerning + common ligatures on, and contextual alternates for DM Sans.
+      fontFeatureSettings: "'kern' 1, 'liga' 1, 'calt' 1",
+      fontVariantLigatures: 'common-ligatures',
       // Modal Global Style
       '.modal-video-close-btn': {
         cursor: 'pointer',

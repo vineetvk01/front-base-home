@@ -128,7 +128,7 @@ const styles = {
     },
   },
   listItem: {
-    fontFamily: 'DM Sans',
+    fontFamily: 'body',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: [1, 2],

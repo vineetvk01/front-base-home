@@ -10,6 +10,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@fontsource-variable/dm-sans": "^5.3.0",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.0.17",
     "globby": "^13.2.2",
@@ -25,8 +26,7 @@
     "react-multi-carousel": "^2.8.6",
     "react-scroll": "^1.8.9",
     "react-stickynode": "^4.0.1",
-    "theme-ui": "^0.17.2",
-    "typeface-dm-sans": "^1.1.13"
+    "theme-ui": "^0.17.2"
   },
   "devDependencies": {
     "file-loader": "^6.2.0",
