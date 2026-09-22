@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui';
 import { useCallback, useEffect, useState } from 'react';
 import { keyframes } from '@emotion/react';
-import { Container, Box, Heading, Text, Button, Input, Label, Link } from 'theme-ui';
+import { Container, Box, Heading, Text, Button, Input, Label } from 'theme-ui';
 import { CiCreditCardOff } from "react-icons/ci";
 import { FaArrowCircleRight, FaBolt, FaCheckCircle, FaRobot } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
@@ -25,7 +25,6 @@ const shake = keyframes`
 const FORM_ACTION =
   'https://docs.google.com/forms/d/e/1FAIpQLSepsUYD3zwxP4K6CjEwXgW2vHhETCiP1eEtfY9ghku6PA4msw/formResponse';
 const FORM_EMAIL_FIELD = 'entry.53585159';
-const SIGNUP_URL = 'https://go.frontbaseapp.com';
 
 export default function Banner() {
   const [email, setEmail] = useState('');
@@ -96,10 +95,8 @@ export default function Banner() {
                   You&rsquo;re on the list.
                 </Text>
                 <Text as="p" sx={styles.banner.successText}>
-                  We&rsquo;ll reach out at {email}.{' '}
-                  <Link href={SIGNUP_URL} sx={styles.banner.successLink}>
-                    Continue to sign up &rarr;
-                  </Link>
+                  We&rsquo;ll reach back in your inbox at {email} with an offer
+                  &mdash; stay tuned.
                 </Text>
               </Box>
             </Box>
@@ -381,13 +378,6 @@ const styles = {
       color: 'text_secondary',
       m: 0,
       wordBreak: 'break-word',
-    },
-    successLink: {
-      color: 'heading',
-      fontWeight: 600,
-      textDecoration: 'underline',
-      cursor: 'pointer',
-      whiteSpace: 'nowrap',
     },
     startedFreeButton: {
       borderRadius: '12px',
