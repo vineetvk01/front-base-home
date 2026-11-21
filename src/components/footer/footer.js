@@ -1,34 +1,35 @@
-import { jsx, Box, Grid, Container, Image, Heading, Text } from 'theme-ui';
+import { jsx, Box, Container, Image, Heading, Text } from 'theme-ui';
 import { Link } from 'components/link';
+import EmailSignupForm from 'components/email-signup-form';
 import data from './footer.data';
 
 const FooterLogo = '/assets/gravity-icon.png';
+
+// Distinct from the hero form's ids — two elements cannot share one DOM id, and
+// the hero's nudge behaviour looks itself up by id.
+const FOOTER_EMAIL_INPUT_ID = 'footer-email';
+const FOOTER_FORM_ANCHOR_ID = 'footer-email-form';
 
 export default function Footer() {
   return (
     <footer sx={styles.footer}>
       <Container>
         <Box sx={styles.sectionTitle}>
-          <Heading as="h2">Built for small teams,<br />not outbound agencies</Heading>
+          <Heading as="h2">Built for writers,<br />not for media companies</Heading>
           <Text sx={styles.sectionDescription}>
-            We built Frontbase because outreach tooling is priced for twenty-seat sales floors and takes a week to configure. If you are two people who need a pipeline by Friday, this is for you.
+            We built Frontbase because newsletter tooling charges you more every time your list grows, then bills the website separately. If you write the thing yourself and want the bill to make sense, this is for you.
           </Text>
+          <Box sx={styles.formWrapper}>
+            <EmailSignupForm
+              inputId={FOOTER_EMAIL_INPUT_ID}
+              formId={FOOTER_FORM_ANCHOR_ID}
+            />
+            <Text sx={styles.formNote}>
+              14-day free trial &middot; No credit card &middot; Unlimited
+              subscribers
+            </Text>
+          </Box>
         </Box>
-        <Grid sx={styles.widgets}>
-          {data.widgets.map((item) => (
-            <Box
-              key={`footer-widget--key${item.id}`}
-              sx={styles.widgets.widgetItem}
-            >
-              <Image src={item.iconSrc} alt={item.altText} />
-              <Box sx={styles.widgets.infoWrapper}>
-                <Heading as="h3">{item.title}</Heading>
-                <Text as="p">{item.description}</Text>
-              </Box>
-            </Box>
-          ))}
-        </Grid>
-        {/* End of footer widgets area */}
         <Box sx={styles.footer.footerBottomArea}>
           <Link path="/">
             <Image src={FooterLogo} alt="Logo" style={{ height: "80px" }} />
@@ -103,8 +104,11 @@ const styles = {
   },
   sectionTitle: {
     textAlign: 'center',
-    mb: [8, 12, 16],
-    py: [6, 8, 10],
+    // The six-widget grid used to sit below this block and needed room for it;
+    // with only the signup form here, the footer divider's own top padding is
+    // already most of the gap.
+    mb: [2, 3, 4],
+    py: [6, 7, 8],
     h2: {
       fontSize: [4, 5, 6],
       fontWeight: 700,
@@ -123,39 +127,16 @@ const styles = {
     mb: 0,
     letterSpacing: '0.3px',
   },
-  widgets: {
-    py: [10, 12, 14],
-    px: [4, 0, 3, null, 7, 10],
-    width: ['100%', '80%', '100%'],
-    mx: 'auto',
-    gridGap: ['50px 0', null, '60px 40px', null, '70px 50px', '60px 100px'],
-    gridTemplateColumns: [
-      'repeat(1,1fr)',
-      null,
-      'repeat(2,1fr)',
-      'repeat(3,1fr)',
-    ],
-    widgetItem: {
-      textAlign: 'center',
-    },
-    infoWrapper: {
-      mt: [3, 4, null, 3, 5],
-      mb: -1,
-      h3: {
-        fontSize: [3, null, null, 2, 3, 4],
-        color: 'heading_secondary',
-        lineHeight: 1.4,
-        fontWeight: 700,
-        mb: [2, 3, null, null, '15px'],
-        letterSpacing: '-0.3px',
-      },
-      p: {
-        fontSize: ['14px', '15px', '16px'],
-        fontWeight: 400,
-        lineHeight: 1.6,
-        color: 'text_secondary',
-        letterSpacing: '0.2px',
-      },
-    },
+  // Centres the shared signup form under the closing pitch.
+  formWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  formNote: {
+    mt: ['14px', '16px'],
+    fontSize: ['13px', '14px'],
+    color: 'text_secondary',
+    textAlign: 'center',
   },
 };

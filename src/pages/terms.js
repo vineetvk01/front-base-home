@@ -11,7 +11,10 @@ export default function IndexPage() {
     <ThemeProvider theme={theme}>
       <StickyProvider>
         <Layout>
-          <SEO title="Frontbase — Terms" />
+          <SEO
+            title="Frontbase — Terms of Service"
+            description="The terms that govern use of Frontbase: plans and send-based billing, cancellation and refunds, ownership of your content and list, the rules for sending email, and our liability."
+          />
           <Terms />
         </Layout>
       </StickyProvider>

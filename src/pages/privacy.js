@@ -11,7 +11,10 @@ export default function IndexPage() {
     <ThemeProvider theme={theme}>
       <StickyProvider>
         <Layout>
-          <SEO title="Frontbase — Privacy" />
+          <SEO
+            title="Frontbase — Privacy Policy"
+            description="How Frontbase handles personal data: what we collect about publishers, how we process subscriber lists on their behalf, email measurement, retention and your rights."
+          />
           <Privacy />
         </Layout>
       </StickyProvider>

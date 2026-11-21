@@ -19,19 +19,20 @@ const plans = [
   {
     id: 'starter',
     name: 'Starter',
-    tagline: 'For founders sending their first campaigns',
+    tagline: 'For the first few thousand readers',
     monthly: 19,
     annual: 190,
-    buttonText: 'Start free trial',
+    sends: '10,000 emails per month',
+    buttonText: 'Get started',
     buttonVariant: 'secondary',
     ctaNote: '14-day trial · No credit card',
     features: [
-      { text: '2,000 emails per month', isAvailable: true, highlight: true },
-      { text: '2 connected mailboxes', isAvailable: true },
-      { text: '500 AI credits per month', isAvailable: true },
-      { text: 'Unlimited contacts & unlimited warmup', isAvailable: true },
-      { text: 'Unified inbox', isAvailable: true },
-      { text: 'Meeting scheduler', isAvailable: false },
+      { text: 'Unlimited subscribers', isAvailable: true, highlight: true },
+      { text: 'Hosted archive & signup page', isAvailable: true },
+      { text: '1 custom sending domain', isAvailable: true },
+      { text: 'AI drafting & subject lines', isAvailable: true },
+      { text: 'Welcome automation', isAvailable: true },
+      { text: 'Branching automations & A/B tests', isAvailable: false },
       { text: 'API, MCP & webhooks', isAvailable: false },
     ],
   },
@@ -39,57 +40,61 @@ const plans = [
     id: 'growth',
     name: 'Growth',
     badge: 'Most popular',
-    tagline: 'For teams with outbound as a real channel',
+    tagline: 'For newsletters mailing every week',
     monthly: 49,
     annual: 490,
-    buttonText: 'Start free trial',
+    sends: '50,000 emails per month',
+    buttonText: 'Get started',
     buttonVariant: 'primary',
     ctaNote: '14-day trial · No credit card',
     highlighted: true,
     featuresIntro: 'Everything in Starter, plus:',
     features: [
-      { text: 'Unlimited email sending', isAvailable: true, highlight: true },
-      { text: '10 connected mailboxes', isAvailable: true, highlight: true },
-      { text: '5,000 AI credits per month', isAvailable: true },
-      { text: 'Up to 3 team seats', isAvailable: true },
+      { text: '3 sending domains & 3 seats', isAvailable: true },
       {
-        text: 'Meeting scheduler with calendar sync',
+        text: 'Branching automations on opens & clicks',
         isAvailable: true,
         highlight: true,
       },
+      { text: 'A/B testing on subject lines', isAvailable: true },
+      { text: 'Link-level click reporting', isAvailable: true },
+      { text: 'No Frontbase branding', isAvailable: true, highlight: true },
       { text: 'API, MCP & webhooks', isAvailable: true, highlight: true },
-      { text: 'CRM integrations & A/B testing', isAvailable: true },
     ],
   },
   {
     id: 'scale',
     name: 'Scale',
-    tagline: 'For sales teams running outbound at volume',
+    tagline: 'For publishers with real volume',
     monthly: 99,
     annual: 990,
+    sends: '150,000 emails per month',
     buttonText: 'Talk to us',
     buttonVariant: 'secondary',
     ctaNote: 'We reply within one business day',
     featuresIntro: 'Everything in Growth, plus:',
     features: [
       {
-        text: 'Unlimited mailboxes & unlimited seats',
+        text: 'Unlimited domains & unlimited seats',
         isAvailable: true,
         highlight: true,
       },
-      { text: '25,000 AI credits per month', isAvailable: true, highlight: true },
       {
-        text: 'AI prospect research & list building',
+        text: 'Paid subscriptions via Stripe',
         isAvailable: true,
         highlight: true,
       },
-      { text: 'Round-robin routing & team reports', isAvailable: true },
+      { text: 'Dedicated sending IP', isAvailable: true, highlight: true },
       { text: 'Deliverability monitoring & DNS setup', isAvailable: true },
       { text: 'SSO / SAML', isAvailable: true },
-      { text: 'Priority support & guided onboarding', isAvailable: true },
+      { text: 'Priority support & migration help', isAvailable: true },
     ],
   },
 ];
+
+// Overage is deliberately boring and published up front — the whole pitch is
+// that the bill tracks sends, so the per-send price has to be visible.
+const OVERAGE_PER_THOUSAND = '$0.40';
 
 // Annual plans are billed yearly but shown as a per-month equivalent.
 const monthlyEquivalent = (plan) => Math.round(plan.annual / 12);
@@ -103,12 +108,12 @@ export default function Pricing() {
       <Container>
         <Box sx={styles.contentBox}>
           <Heading as="h2" sx={styles.title}>
-            Pricing that scales with your send volume
+            Pay for sends, not for subscribers
           </Heading>
           <Text sx={styles.description}>
-            Every plan includes unlimited contacts and unlimited inbox warmup.
-            You pay for sending volume, mailboxes and AI credits — the things
-            that actually grow when outbound starts working.
+            Every plan carries unlimited subscribers, the hosted website and the
+            archive. The only meter is the emails you choose to send, priced the
+            same whether a reader joined yesterday or three years ago.
           </Text>
         </Box>
 
@@ -189,6 +194,15 @@ export default function Pricing() {
                     : `or $${plan.annual}/year — save $${plan.monthly * 12 - plan.annual}`}
                 </Text>
 
+                <Box sx={styles.sendsRow}>
+                  <Text as="span" sx={styles.sendsValue}>
+                    {plan.sends}
+                  </Text>
+                  <Text as="span" sx={styles.sendsNote}>
+                    then {OVERAGE_PER_THOUSAND} per 1,000
+                  </Text>
+                </Box>
+
                 <Button
                   variant={plan.buttonVariant}
                   sx={{
@@ -236,9 +250,9 @@ export default function Pricing() {
         </Grid>
 
         <Text sx={styles.footnote}>
-          All plans include unlimited contacts, unlimited inbox warmup and
-          unlimited sequences. Change plans or cancel anytime — no contracts, no
-          setup fees.
+          Unused sends do not roll over, and nothing is charged for a subscriber
+          who simply sits on your list. Change plans or cancel anytime — no
+          contracts, no setup fees, and your list exports in one click.
         </Text>
       </Container>
     </section>
@@ -436,8 +450,31 @@ const styles = {
   priceNote: {
     fontSize: '13px',
     color: 'text_secondary',
-    mb: ['20px', '24px'],
+    mb: ['14px', '16px'],
     minHeight: '20px',
+  },
+  // The send allowance is the real unit of the plan, so it gets its own band
+  // rather than being buried in the feature list.
+  sendsRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2px',
+    px: '12px',
+    py: '10px',
+    mb: ['20px', '24px'],
+    borderRadius: '10px',
+    backgroundColor: 'muted',
+  },
+  sendsValue: {
+    fontSize: ['14px', '15px'],
+    fontWeight: 600,
+    color: 'heading',
+    lineHeight: 1.3,
+  },
+  sendsNote: {
+    fontSize: '12px',
+    color: 'text_secondary',
+    lineHeight: 1.3,
   },
   cta: {
     width: '100%',

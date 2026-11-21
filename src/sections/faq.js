@@ -5,40 +5,46 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 const faqData = [
   {
+    id: 'pricing-model',
+    question: 'How does paying per send actually save me money?',
+    answer:
+      'Most platforms price on list size, so a reader who has not opened anything in a year costs you the same as your most engaged subscriber — and your bill climbs every time you grow. Frontbase meters sends instead. A 25,000-name list mailed once a week is 100,000 emails a month; the same list mailed twice a month is 50,000. You decide which, and the bill follows that decision rather than the size of the list sitting behind it.',
+  },
+  {
+    id: 'migration',
+    question: 'Can I bring my list over from Substack, Ghost or Mailchimp?',
+    answer:
+      'Yes. Export a CSV from your current platform and import it here, or push subscribers in through the API. We keep your signup dates and tags, and your existing unsubscribes and bounces are carried into the suppression list so nobody who already opted out hears from you again. On Scale we will do the migration with you, including pointing your domain and moving your archive.',
+  },
+  {
+    id: 'send-limits',
+    question: 'What happens if I hit my monthly send limit?',
+    answer:
+      'Nothing is deleted and no issue is lost. You can either let the remaining sends wait for the month to reset, pay the overage at $0.40 per 1,000 emails, or upgrade — whichever is cheaper for you that month. We notify you at 80% of your allowance so it is never a surprise, and unused sends do not roll over.',
+  },
+  {
     id: 'deliverability',
-    question: 'Will my emails actually land in the inbox?',
+    question: 'Will my newsletter land in the inbox?',
     answer:
-      'That is the part we spend the most engineering on. Every mailbox you connect is warmed continuously at no extra cost, sending is spread across your accounts with randomised human-like pacing, and we check your SPF, DKIM and DMARC records before your first campaign goes out. You also get alerts if a domain starts trending toward spam so you can pull back before it costs you the domain.',
+      'That is the part we spend the most engineering on. You send from your own authenticated domain, and we check SPF, DKIM and DMARC before your first issue goes out rather than after a bad send. Every list import is scrubbed for invalid and risky addresses, one-click unsubscribe is on every email, and you get an alert if placement starts drifting. Scale adds a dedicated sending IP for publishers with the volume to warrant one.',
   },
   {
-    id: 'mailboxes',
-    question: 'Can I connect my existing Google Workspace or Outlook mailboxes?',
+    id: 'website',
+    question: 'Do I get a website, or do I need to host one myself?',
     answer:
-      'Yes. Connect Google Workspace or Microsoft 365 in one OAuth click, or use plain SMTP/IMAP for any other provider. Your mailboxes stay yours — we send through them rather than through a shared pool, which is a large part of why placement holds up. Starter includes 2 mailboxes, Growth 10, and Scale is unlimited.',
+      'It is included. Every plan comes with a hosted signup page, a public archive and a page per issue, all on your own custom domain with an RSS feed. If you already have a site, use the embeddable signup form instead and keep the archive switched off. Either way there is no second hosting bill and nothing for you to deploy.',
   },
   {
-    id: 'ai-credits',
-    question: 'What are AI credits, and what uses them?',
+    id: 'paid-subscriptions',
+    question: 'Can I charge readers for a paid tier?',
     answer:
-      'One credit is one AI action: drafting a sequence step, personalising an email for a specific prospect, classifying an inbound reply, or researching a company. Warmup, sending, scheduling and the unified inbox never consume credits. Starter includes 500 per month, Growth 5,000 and Scale 25,000, and unused credits do not roll over.',
-  },
-  {
-    id: 'plan-limits',
-    question: "What happens if I hit my monthly email or credit limit?",
-    answer:
-      'Nothing gets deleted and no campaign is lost. Sequences pause at your sending cap and resume when the month resets or the moment you upgrade, and AI features fall back to your own templates once credits run out. We notify you at 80% so it is never a surprise. Growth and Scale include unlimited sending, so the only meter left is credits.',
-  },
-  {
-    id: 'compliance',
-    question: 'Is cold email legal, and how do you handle compliance?',
-    answer:
-      'Cold email to business contacts is legal in most jurisdictions when you identify yourself, state why you are writing, and honour opt-outs — that is the core of CAN-SPAM, and GDPR adds a legitimate-interest test for EU recipients. Frontbase adds a one-click unsubscribe to every send, maintains a permanent suppression list across all your campaigns, and blocks addresses that have opted out even if they reappear in a later import. We do not sell contact lists and we do not allow purchased-list imports.',
+      'On the Scale plan, yes — connect Stripe and you can gate issues behind a paid tier, with Frontbase handling the member list and access. We do not take a percentage of your subscription revenue; you pay for sends like everyone else and keep the rest. Starter and Growth are free-newsletter plans.',
   },
   {
     id: 'billing',
     question: 'Can I switch plans or cancel anytime?',
     answer:
-      'Yes, both, self-serve and without talking to anyone. Upgrades apply immediately and we prorate the difference; downgrades take effect at the end of your current period so you keep what you paid for. Cancel and your account drops to read-only — your campaigns, replies and contact history stay exported-ready rather than being deleted.',
+      'Yes, both, self-serve and without talking to anyone. Upgrades apply immediately and we prorate the difference; downgrades take effect at the end of your current period so you keep what you paid for. Cancel and your account drops to read-only — your subscribers, issues and stats stay export-ready rather than being deleted.',
   },
 ];
 
@@ -52,11 +58,11 @@ export default function Faq() {
       <Container>
         <Box sx={styles.contentBox}>
           <Heading as="h2" sx={styles.title}>
-            Questions before you upgrade
+            Questions before you move your list
           </Heading>
           <Text sx={styles.description}>
-            The things teams ask us most before they point their outbound at
-            Frontbase.
+            The things publishers ask us most before they bring their newsletter
+            over to Frontbase.
           </Text>
         </Box>
 

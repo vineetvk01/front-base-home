@@ -4,7 +4,9 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import Drawer from 'components/drawer';
 import { DrawerContext } from '../../contexts/drawer/drawer.context';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
+// Still used by the social icons further down this file.
 import { Link } from 'react-scroll';
+import NavLink from './nav-link';
 import {
   FaFacebookF,
   FaTwitter,
@@ -59,19 +61,16 @@ const MobileDrawer = () => {
       <Scrollbars autoHide>
         <Box sx={styles.content}>
           <Box sx={styles.menu}>
-            {menuItems.map(({ path, label, onClick = () => {} }, i) => (
-              <Link
-                activeClass="active"
-                to={path}
-                onClick={onClick}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
+            {menuItems.map(({ path, label, onClick }, i) => (
+              <NavLink
                 key={i}
-              >
-                {label}
-              </Link>
+                path={path}
+                label={label}
+                onClick={onClick}
+                // Close the drawer on tap, so the section being scrolled to is
+                // not hidden behind it.
+                onNavigate={toggleHandler}
+              />
             ))}
           </Box>
 

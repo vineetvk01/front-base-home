@@ -1,56 +1,56 @@
 /** @jsxImportSource theme-ui */
 import { Container, Box, Heading, Text, Grid } from 'theme-ui';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
-import { FaRobot, FaInbox } from 'react-icons/fa';
-import { MdOutlineHealthAndSafety, MdEventAvailable } from 'react-icons/md';
+import { FiEdit3, FiGlobe, FiZap } from 'react-icons/fi';
+import { TbChartHistogram } from 'react-icons/tb';
 
 const features = [
   {
-    id: 'sequences',
-    icon: FaRobot,
+    id: 'write',
+    icon: FiEdit3,
     iconColor: '#8B5CF6',
-    title: 'Sequences that write themselves',
-    text: 'Describe the offer and who it is for. Your agent drafts the opener, the follow-ups and the fallbacks, personalised per prospect from their site, role and recent activity — not a mail-merge first name.',
+    title: 'An editor that stays out of the way',
+    text: 'Write in a clean block editor, drop in images and buttons, and see exactly how the issue lands on a phone before it goes out. When the blank page wins, ask the AI for a first draft from your own back catalogue.',
     points: [
-      'Multi-step email sequences with branching follow-ups',
-      'Per-prospect personalisation from public data',
-      'A/B test subject lines and openers automatically',
+      'Block editor with desktop and mobile preview',
+      'AI drafting, subject lines and preview text',
+      'Reusable templates and saved sections',
     ],
   },
   {
-    id: 'deliverability',
-    icon: MdOutlineHealthAndSafety,
-    iconColor: '#10B981',
-    title: 'Land in the inbox, not in spam',
-    text: 'Warmup runs continuously on every mailbox you connect, at no extra cost. Sending is spread across accounts with human-like pacing, and we flag SPF, DKIM and DMARC problems before you hit send.',
-    points: [
-      'Unlimited inbox warmup on every plan',
-      'Mailbox rotation with randomised send windows',
-      'SPF / DKIM / DMARC checks and deliverability alerts',
-    ],
-  },
-  {
-    id: 'inbox',
-    icon: FaInbox,
+    id: 'website',
+    icon: FiGlobe,
     iconColor: '#06B6D4',
-    title: 'Every reply in one place',
-    text: 'All your sending accounts collapse into a single inbox. The agent sorts interested from not-interested from out-of-office, drafts the response, and pauses the sequence the moment someone answers.',
+    title: "Your newsletter's own website",
+    text: 'Every issue gets a public page, your archive gets a home, and new readers get a signup page that actually converts — on your own domain, at no extra cost and with nothing to host yourself.',
     points: [
-      'Unified inbox across every connected mailbox',
-      'Intent classification and AI-drafted replies',
-      'Auto-pause sequences on reply, bounce or unsubscribe',
+      'Hosted archive and per-issue pages on your domain',
+      'Signup page plus embeddable forms for any site',
+      'SEO-ready pages and an RSS feed out of the box',
     ],
   },
   {
-    id: 'scheduler',
-    icon: MdEventAvailable,
+    id: 'automations',
+    icon: FiZap,
     iconColor: '#F59E0B',
-    title: 'Book the meeting in the thread',
-    text: 'When a prospect says yes, the agent offers real times from your calendar and confirms the invite inside the same email thread. No scheduling link ping-pong, no dropped handoff.',
+    title: 'Automations without the flowchart degree',
+    text: 'Welcome a new reader, follow up with the people who opened, re-send to the ones who did not. Build the sequence once in plain steps and it keeps running while you write the next issue.',
     points: [
-      'Two-way Google and Outlook calendar sync',
-      'Times offered inline, booked without leaving email',
-      'Round-robin routing across your team',
+      'Welcome sequences triggered on signup',
+      'Branching on opens, clicks and tags',
+      'API, webhooks and MCP for everything else',
+    ],
+  },
+  {
+    id: 'stats',
+    icon: TbChartHistogram,
+    iconColor: '#10B981',
+    title: 'Numbers you can act on',
+    text: 'Opens and clicks per issue, which links pulled, which subject lines worked, and what the send actually cost you. Delivery is authenticated and monitored, so a placement problem shows up here before readers notice it.',
+    points: [
+      'Per-issue opens, clicks and link-level reporting',
+      'Cost per send, so pricing never surprises you',
+      'SPF / DKIM / DMARC checks and placement alerts',
     ],
   },
 ];
@@ -61,12 +61,12 @@ export default function Features() {
       <Container>
         <Box sx={styles.contentBox}>
           <Heading as="h2" sx={styles.title}>
-            Four jobs, one agent
+            Everything a newsletter needs
           </Heading>
           <Text sx={styles.description}>
-            Most teams stitch outreach together from a sequencer, a warmup tool,
-            a scheduling link and a shared mailbox. Frontbase is all four, so
-            nothing falls between them.
+            Most publishers end up paying for an email tool, a website, a form
+            builder and an automation app. Frontbase is all four, so your
+            archive, your signup page and your sends stay in one place.
           </Text>
         </Box>
 

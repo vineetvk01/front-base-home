@@ -386,6 +386,11 @@ export default {
       // Kerning + common ligatures on, and contextual alternates for DM Sans.
       fontFeatureSettings: "'kern' 1, 'liga' 1, 'calt' 1",
       fontVariantLigatures: 'common-ligatures',
+      // Anchor jumps from another page (/#pricing) would otherwise land the
+      // section flush at y=0, underneath the sticky header.
+      'section[id]': {
+        scrollMarginTop: '80px',
+      },
       // Modal Global Style
       '.modal-video-close-btn': {
         cursor: 'pointer',

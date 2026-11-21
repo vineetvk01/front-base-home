@@ -1,38 +1,36 @@
 /** @jsxImportSource theme-ui */
 import { jsx } from 'theme-ui';
 import { Container, Box, Heading, Text, Grid } from 'theme-ui';
-import { MdOutlineMarkEmailRead } from 'react-icons/md';
-import { MdAccessTime } from 'react-icons/md';
-import { FaInbox } from 'react-icons/fa';
-import { FaRobot } from 'react-icons/fa';
+import { MdAccessTime, MdOutlinePeopleAlt, MdOutlineLanguage } from 'react-icons/md';
+import { MdOutlineHealthAndSafety } from 'react-icons/md';
 
 const benefitsData = [
   {
     id: 1,
-    icon: MdOutlineMarkEmailRead,
-    title: 'Unlimited mailbox warmup',
-    text: 'Every inbox you connect gets warmed and kept healthy, free of charge',
+    icon: MdOutlinePeopleAlt,
+    title: 'Unlimited subscribers, always',
+    text: 'Five hundred readers or five hundred thousand — the price follows your sends, not your list',
     iconColor: '#06B6D4',
   },
   {
     id: 2,
-    icon: FaRobot,
-    title: 'Replies handled 24/7',
-    text: 'Your agent reads intent, answers in your voice, and escalates the hot ones',
+    icon: MdOutlineLanguage,
+    title: 'A website you do not pay extra for',
+    text: 'Hosted archive, signup page and custom domain are included on every plan',
     iconColor: '#A855F7',
   },
   {
     id: 3,
     icon: MdAccessTime,
-    title: 'First campaign in 10 minutes',
-    text: 'Connect a mailbox, paste your list, describe the offer — that is the setup',
+    title: 'First issue out in 10 minutes',
+    text: 'Import a CSV, point your domain, write, send — that is the whole setup',
     iconColor: '#51CF66',
   },
   {
     id: 4,
-    icon: FaInbox,
-    title: 'One inbox for every mailbox',
-    text: 'Stop tab-hopping between sending accounts to find who answered',
+    icon: MdOutlineHealthAndSafety,
+    title: 'Deliverability taken care of',
+    text: 'Authenticated sending domains, DNS checks and placement monitoring on every send',
     iconColor: '#4C6EF5',
   },
 ];
@@ -43,12 +41,14 @@ export default function Benefits() {
       <Container>
         <Box sx={styles.contentBox}>
           <Heading as="h2" sx={styles.title}>
-            Cold outreach is a full-time job.
+            Your list is an asset.
             <br />
-            Give it to an agent.
+            Most platforms price it like a liability.
           </Heading>
           <Text sx={styles.description}>
-            Sequencing, follow-ups, deliverability, reply triage, scheduling — it is a pile of small jobs that eats a founder's week. Frontbase runs all of it in one place, and tells you only when someone wants to talk.
+            Every subscriber you add raises your bill on Ghost, Mailchimp and
+            beehiiv — whether that reader opens anything or not. Frontbase
+            meters the one thing you actually chose to do: send the issue.
           </Text>
         </Box>
 
