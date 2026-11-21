@@ -6,11 +6,22 @@ import { CiCreditCardOff } from 'react-icons/ci';
 import { FaBolt } from 'react-icons/fa';
 import { MdOutlineMarkEmailRead } from 'react-icons/md';
 import EmailSignupForm from 'components/email-signup-form';
+import RotatingWord from 'components/rotating-word';
 import {
   NUDGE_EMAIL_EVENT,
   HERO_EMAIL_INPUT_ID,
   HERO_FORM_ANCHOR_ID,
 } from 'lib/nudge-email-form';
+
+// "newsletter" is first and is also the word assistive tech and crawlers get,
+// since it is the term the page ranks for. The others are kept close to it in
+// length so the swap nudges the line rather than jolting it.
+const ROTATING_WORDS = [
+  'newsletter',
+  'email list',
+  'campaigns',
+  'automations',
+];
 
 export default function Banner() {
   const [isNudging, setIsNudging] = useState(false);
@@ -40,17 +51,26 @@ export default function Banner() {
   return (
     <section sx={styles.banner} id="home">
       <Container sx={styles.banner.container}>
-        <Heading as="h1" variant="heroPrimary" sx={styles.banner.heading}>
-          Grow your list without
+        <Heading
+          as="h1"
+          variant="heroPrimary"
+          sx={styles.banner.heading}
+          // One stable sentence for screen readers, which otherwise hear the
+          // heading rename itself every few seconds.
+          aria-label={`Your ${ROTATING_WORDS[0]} shouldn’t cost more every time someone subscribes`}
+        >
+          Your <RotatingWord words={ROTATING_WORDS} />
           <br />
+          shouldn&rsquo;t cost more{' '}
           <Box as="span" sx={styles.banner.highlight}>
-            growing your bill
+            every time someone subscribes
           </Box>
         </Heading>
 
         <Text as="p" variant="heroSecondary" sx={styles.banner.description}>
-          You only pay for the emails you actually send &mdash; never for the
-          dormant subscribers sitting on your list. From $19 a month.
+          Frontbase meters the emails you actually send, so a reader who joins
+          today costs nothing until you mail them. Unlimited subscribers on
+          every plan, from $19 a month.
         </Text>
 
         <EmailSignupForm
@@ -99,25 +119,36 @@ const styles = {
       // Line-height and tracking come from the heroPrimary variant; setting them
       // here too would override it with values tuned for much smaller type.
       marginBottom: ['18px', '20px', '22px'],
-      maxWidth: ['100%', '100%', '20ch'],
+      // A step down from the heroPrimary variant: this headline runs to three
+      // lines, and at the variant's 58px the block dominated the viewport.
+      fontSize: ['26px', '30px', '36px', '42px', '46px'],
+      maxWidth: ['100%', '100%', '100%'],
       mx: 'auto',
     },
-    // Marker-pen underline. Painted as a background layer rather than a
+    // Marker-pen underline, painted as a background layer rather than a
     // positioned pseudo-element so it never fights the section's stacking
-    // context, and so it follows the text if the phrase wraps.
+    // context. A background only paints on an inline element's first line
+    // fragment, so the clause becomes its own block from the tablet width up —
+    // and below that, where it has to wrap, the underline is dropped instead of
+    // being drawn across half the phrase.
     highlight: {
-      display: 'inline',
-      backgroundImage:
+      display: ['inline', 'inline', 'block'],
+      backgroundImage: [
+        'none',
+        'none',
         'linear-gradient(rgba(139, 92, 246, 0.22), rgba(139, 92, 246, 0.22))',
+      ],
       backgroundSize: '100% 0.3em',
       backgroundPosition: '0 88%',
       backgroundRepeat: 'no-repeat',
+      width: 'fit-content',
+      mx: ['0', '0', 'auto'],
     },
     description: {
       fontSize: ['16px', '17px', '19px'],
       lineHeight: [1.7, 1.75],
       marginBottom: 0,
-      maxWidth: '520px',
+      maxWidth: '560px',
       mx: 'auto',
       letterSpacing: '0.2px',
       color: 'text_secondary',
