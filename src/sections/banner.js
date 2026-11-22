@@ -127,20 +127,23 @@ const styles = {
     },
     // Marker-pen underline, painted as a background layer rather than a
     // positioned pseudo-element so it never fights the section's stacking
-    // context. A background only paints on an inline element's first line
-    // fragment, so the clause becomes its own block from the tablet width up —
-    // and below that, where it has to wrap, the underline is dropped instead of
-    // being drawn across half the phrase.
+    // context.
+    //
+    // From the tablet width up the clause is its own block, which keeps the
+    // band on one clean line. Below that it stays inline and wraps, and a
+    // background normally paints only on an inline element's FIRST line
+    // fragment — which is why the highlight used to disappear on phones.
+    // box-decoration-break: clone repeats the background on every fragment, so
+    // each wrapped line gets its own band.
     highlight: {
       display: ['inline', 'inline', 'block'],
-      backgroundImage: [
-        'none',
-        'none',
+      backgroundImage:
         'linear-gradient(rgba(139, 92, 246, 0.22), rgba(139, 92, 246, 0.22))',
-      ],
       backgroundSize: '100% 0.3em',
       backgroundPosition: '0 88%',
       backgroundRepeat: 'no-repeat',
+      WebkitBoxDecorationBreak: 'clone',
+      boxDecorationBreak: 'clone',
       width: 'fit-content',
       mx: ['0', '0', 'auto'],
     },

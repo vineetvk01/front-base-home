@@ -14,11 +14,39 @@ export default function RotatingWord({ words }) {
     // Readers who ask for less motion keep the first word, static.
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const id = window.setInterval(() => {
-      setIndex((current) => (current + 1) % words.length);
-    }, SWAP_MS);
+    // Only rotate while the page is actually on screen. Background tabs keep
+    // firing timers but freeze requestAnimationFrame, so a swap started while
+    // hidden never finishes — leaving the word parked outside the clipping box
+    // and the headline reading "Your  shouldn't cost more".
+    let timer = null;
 
-    return () => window.clearInterval(id);
+    const start = () => {
+      if (timer === null) {
+        timer = window.setInterval(() => {
+          setIndex((current) => (current + 1) % words.length);
+        }, SWAP_MS);
+      }
+    };
+
+    const stop = () => {
+      if (timer !== null) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    };
+
+    const syncToVisibility = () => {
+      if (document.visibilityState === 'visible') start();
+      else stop();
+    };
+
+    syncToVisibility();
+    document.addEventListener('visibilitychange', syncToVisibility);
+
+    return () => {
+      stop();
+      document.removeEventListener('visibilitychange', syncToVisibility);
+    };
   }, [words.length]);
 
   // No duplicate copy of the word for assistive tech: a visually hidden twin
